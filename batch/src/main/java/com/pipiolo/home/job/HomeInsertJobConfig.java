@@ -1,6 +1,9 @@
-package com.pipiolo.home.batch.job;
+package com.pipiolo.home.job;
 
-import com.pipiolo.home.batch.dto.HomeDto;
+import com.pipiolo.home.dto.HomeDto;
+import com.pipiolo.home.service.HomeRequestService;
+import com.pipiolo.home.dto.HomeRequest;
+import com.pipiolo.home.service.HomeService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.batch.core.Job;
@@ -10,7 +13,9 @@ import org.springframework.batch.core.configuration.annotation.JobScope;
 import org.springframework.batch.core.configuration.annotation.StepBuilderFactory;
 import org.springframework.batch.core.configuration.annotation.StepScope;
 import org.springframework.batch.core.launch.support.RunIdIncrementer;
+import org.springframework.batch.item.ItemProcessor;
 import org.springframework.batch.item.ItemWriter;
+import org.springframework.batch.item.adapter.ItemProcessorAdapter;
 import org.springframework.batch.item.xml.StaxEventItemReader;
 import org.springframework.batch.item.xml.builder.StaxEventItemReaderBuilder;
 import org.springframework.beans.factory.annotation.Value;
@@ -39,12 +44,14 @@ public class HomeInsertJobConfig {
     @Bean
     public Step homeInsertStep(
             StaxEventItemReader<HomeDto> homeItemReader,
-            ItemWriter<HomeDto> itemWriter
+            ItemProcessor<HomeDto, HomeRequest> homeItemProcessor,
+            ItemWriter<HomeRequest> homeItemWriter
     ) {
         return stepBuilderFactory.get("homeInsertStep")
-                .<HomeDto, HomeDto>chunk(10)
+                .<HomeDto, HomeRequest>chunk(10)
                 .reader(homeItemReader)
-                .writer(itemWriter)
+                .processor(homeItemProcessor)
+                .writer(homeItemWriter)
                 .build();
     }
 
@@ -72,9 +79,36 @@ public class HomeInsertJobConfig {
 
     @StepScope
     @Bean
-    public ItemWriter<HomeDto> itemWriter() {
+    public ItemProcessor<HomeDto, HomeRequest> homeItemProcessor(
+            HomeRequestService service
+    ) {
+        return new ItemProcessor<HomeDto, HomeRequest>() {
+            @Override
+            public HomeRequest process(HomeDto item) throws Exception {
+                return service.from(item);
+            }
+        };
+    }
+
+    @StepScope
+    @Bean
+    public ItemProcessorAdapter<HomeDto, HomeRequest> homeItemProcessorAdapter(
+            HomeRequestService service
+    ) {
+        ItemProcessorAdapter<HomeDto, HomeRequest> adapter = new ItemProcessorAdapter<>();
+        adapter.setTargetObject(service);
+        adapter.setTargetMethod("from");
+        return adapter;
+    }
+
+    @StepScope
+    @Bean
+    public ItemWriter<HomeRequest> homeItemWriter(
+            HomeService homeService
+    ) {
         return items -> {
-            items.forEach(System.out::println);
+            items.forEach(homeService::upsert);
+//            items.forEach(System.out::println);
             System.out.println("============= Writing Completed =============");
         };
     }
