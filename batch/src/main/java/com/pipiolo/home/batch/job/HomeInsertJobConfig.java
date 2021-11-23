@@ -1,6 +1,6 @@
-package com.pipiolo.home.job;
+package com.pipiolo.home.batch.job;
 
-import com.pipiolo.home.dto.HomeDto;
+import com.pipiolo.home.batch.dto.HomeDto;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.batch.core.Job;

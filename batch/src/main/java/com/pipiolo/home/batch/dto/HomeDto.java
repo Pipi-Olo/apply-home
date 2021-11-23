@@ -1,4 +1,4 @@
-package com.pipiolo.home.dto;
+package com.pipiolo.home.batch.dto;
 
 import lombok.Getter;
 import lombok.ToString;
