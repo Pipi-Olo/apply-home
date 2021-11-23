@@ -1,4 +1,3 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <response>
     <header>
         <resultCode>00</resultCode>
@@ -7,138 +6,138 @@
     <body>
         <items>
             <item>
-                <bsnsmbynm>아시아신탁주식회사</bsnsmbynm>
-                <housedetailsecdnm>민영</housedetailsecdnm>
-                <housemanageno>2021000200</housemanageno>
-                <housename>횡성 벨라시티</housename>
-                <sido>강원</sido>
-                <pblancno>2021000200</pblancno>
-                <przwnerpresnatnde>2021-04-20</przwnerpresnatnde>
-                <rceptbgnde>2021-04-12</rceptbgnde>
-                <rceptendde>2021-04-14</rceptendde>
-                <rcritpblancde>20210331</rcritpblancde>
-                <rentsecdnm>분양주택</rentsecdnm>
+                <bsnsMbyNm>한국토지주택공사 경남지역본부</bsnsMbyNm>
+                <houseDtlSecdNm>국민</houseDtlSecdNm>
+                <houseManageNo>2021000222</houseManageNo>
+                <houseNm>가포금호어울림 10년공공임대주택(리츠) </houseNm>
+                <pblancNo>2021000222</pblancNo>
+                <przwnerPresnatnDe>2021-05-07</przwnerPresnatnDe>
+                <rceptBgnde>2021-04-21</rceptBgnde>
+                <rceptEndde>2021-04-22</rceptEndde>
+                <rcritPblancDe>20210331</rcritPblancDe>
+                <rentSecdNm>분양전환 가능임대</rentSecdNm>
+                <sido>경남</sido>
             </item>
             <item>
-                <bsnsmbynm>아시아신탁주식회사</bsnsmbynm>
-                <housedetailsecdnm>민영</housedetailsecdnm>
-                <housemanageno>2021000200</housemanageno>
-                <housename>횡성 벨라시티</housename>
+                <bsnsMbyNm>아시아신탁주식회사</bsnsMbyNm>
+                <houseDtlSecdNm>민영</houseDtlSecdNm>
+                <houseManageNo>2021000200</houseManageNo>
+                <houseNm>횡성 벨라시티</houseNm>
+                <pblancNo>2021000200</pblancNo>
+                <przwnerPresnatnDe>2021-04-20</przwnerPresnatnDe>
+                <rceptBgnde>2021-04-12</rceptBgnde>
+                <rceptEndde>2021-04-14</rceptEndde>
+                <rcritPblancDe>20210331</rcritPblancDe>
+                <rentSecdNm>분양주택</rentSecdNm>
                 <sido>강원</sido>
-                <pblancno>2021000200</pblancno>
-                <przwnerpresnatnde>2021-04-20</przwnerpresnatnde>
-                <rceptbgnde>2021-04-12</rceptbgnde>
-                <rceptendde>2021-04-14</rceptendde>
-                <rcritpblancde>20210331</rcritpblancde>
-                <rentsecdnm>분양주택</rentsecdnm>
             </item>
             <item>
-                <bsnsmbynm>아시아신탁주식회사</bsnsmbynm>
-                <housedetailsecdnm>민영</housedetailsecdnm>
-                <housemanageno>2021000200</housemanageno>
-                <housename>횡성 벨라시티</housename>
-                <sido>강원</sido>
-                <pblancno>2021000200</pblancno>
-                <przwnerpresnatnde>2021-04-20</przwnerpresnatnde>
-                <rceptbgnde>2021-04-12</rceptbgnde>
-                <rceptendde>2021-04-14</rceptendde>
-                <rcritpblancde>20210331</rcritpblancde>
-                <rentsecdnm>분양주택</rentsecdnm>
+                <bsnsMbyNm>송현2동송학주택재건축정비사업조합</bsnsMbyNm>
+                <houseDtlSecdNm>민영</houseDtlSecdNm>
+                <houseManageNo>2021000122</houseManageNo>
+                <houseNm>한양수자인 더팰리시티</houseNm>
+                <pblancNo>2021000122</pblancNo>
+                <przwnerPresnatnDe>2021-04-20</przwnerPresnatnDe>
+                <rceptBgnde>2021-04-12</rceptBgnde>
+                <rceptEndde>2021-04-14</rceptEndde>
+                <rcritPblancDe>20210331</rcritPblancDe>
+                <rentSecdNm>분양주택</rentSecdNm>
+                <sido>대구</sido>
             </item>
             <item>
-                <bsnsmbynm>아시아신탁주식회사</bsnsmbynm>
-                <housedetailsecdnm>민영</housedetailsecdnm>
-                <housemanageno>2021000200</housemanageno>
-                <housename>횡성 벨라시티</housename>
-                <sido>강원</sido>
-                <pblancno>2021000200</pblancno>
-                <przwnerpresnatnde>2021-04-20</przwnerpresnatnde>
-                <rceptbgnde>2021-04-12</rceptbgnde>
-                <rceptendde>2021-04-14</rceptendde>
-                <rcritpblancde>20210331</rcritpblancde>
-                <rentsecdnm>분양주택</rentsecdnm>
+                <bsnsMbyNm>관악효신연립가로주택정비사업조합</bsnsMbyNm>
+                <houseDtlSecdNm>민영</houseDtlSecdNm>
+                <houseManageNo>2021000120</houseManageNo>
+                <houseNm>관악 중앙하이츠 포레</houseNm>
+                <pblancNo>2021000120</pblancNo>
+                <przwnerPresnatnDe>2021-04-20</przwnerPresnatnDe>
+                <rceptBgnde>2021-04-09</rceptBgnde>
+                <rceptEndde>2021-04-14</rceptEndde>
+                <rcritPblancDe>20210330</rcritPblancDe>
+                <rentSecdNm>분양주택</rentSecdNm>
+                <sido>서울</sido>
             </item>
             <item>
-                <bsnsmbynm>아시아신탁주식회사</bsnsmbynm>
-                <housedetailsecdnm>민영</housedetailsecdnm>
-                <housemanageno>2021000200</housemanageno>
-                <housename>횡성 벨라시티</housename>
-                <sido>강원</sido>
-                <pblancno>2021000200</pblancno>
-                <przwnerpresnatnde>2021-04-20</przwnerpresnatnde>
-                <rceptbgnde>2021-04-12</rceptbgnde>
-                <rceptendde>2021-04-14</rceptendde>
-                <rcritpblancde>20210331</rcritpblancde>
-                <rentsecdnm>분양주택</rentsecdnm>
+                <bsnsMbyNm>교보자산신탁(주)</bsnsMbyNm>
+                <houseDtlSecdNm>민영</houseDtlSecdNm>
+                <houseManageNo>2021000197</houseManageNo>
+                <houseNm>천안 한양수자인 에코시티</houseNm>
+                <pblancNo>2021000197</pblancNo>
+                <przwnerPresnatnDe>2021-04-16</przwnerPresnatnDe>
+                <rceptBgnde>2021-04-08</rceptBgnde>
+                <rceptEndde>2021-04-12</rceptEndde>
+                <rcritPblancDe>20210329</rcritPblancDe>
+                <rentSecdNm>분양주택</rentSecdNm>
+                <sido>충남</sido>
             </item>
             <item>
-                <bsnsmbynm>아시아신탁주식회사</bsnsmbynm>
-                <housedetailsecdnm>민영</housedetailsecdnm>
-                <housemanageno>2021000200</housemanageno>
-                <housename>횡성 벨라시티</housename>
-                <sido>강원</sido>
-                <pblancno>2021000200</pblancno>
-                <przwnerpresnatnde>2021-04-20</przwnerpresnatnde>
-                <rceptbgnde>2021-04-12</rceptbgnde>
-                <rceptendde>2021-04-14</rceptendde>
-                <rcritpblancde>20210331</rcritpblancde>
-                <rentsecdnm>분양주택</rentsecdnm>
+                <bsnsMbyNm>주식회사 대영일루션피에프브이</bsnsMbyNm>
+                <houseDtlSecdNm>민영</houseDtlSecdNm>
+                <houseManageNo>2021000175</houseManageNo>
+                <houseNm>동대구역 골드클래스</houseNm>
+                <pblancNo>2021000175</pblancNo>
+                <przwnerPresnatnDe>2021-04-19</przwnerPresnatnDe>
+                <rceptBgnde>2021-04-08</rceptBgnde>
+                <rceptEndde>2021-04-13</rceptEndde>
+                <rcritPblancDe>20210329</rcritPblancDe>
+                <rentSecdNm>분양주택</rentSecdNm>
+                <sido>대구</sido>
             </item>
             <item>
-                <bsnsmbynm>아시아신탁주식회사</bsnsmbynm>
-                <housedetailsecdnm>민영</housedetailsecdnm>
-                <housemanageno>2021000200</housemanageno>
-                <housename>횡성 벨라시티</housename>
-                <sido>강원</sido>
-                <pblancno>2021000200</pblancno>
-                <przwnerpresnatnde>2021-04-20</przwnerpresnatnde>
-                <rceptbgnde>2021-04-12</rceptbgnde>
-                <rceptendde>2021-04-14</rceptendde>
-                <rcritpblancde>20210331</rcritpblancde>
-                <rentsecdnm>분양주택</rentsecdnm>
+                <bsnsMbyNm>용인8구역주택재개발정비사업조합</bsnsMbyNm>
+                <houseDtlSecdNm>민영</houseDtlSecdNm>
+                <houseManageNo>2021000153</houseManageNo>
+                <houseNm>용인 드마크 데시앙</houseNm>
+                <pblancNo>2021000153</pblancNo>
+                <przwnerPresnatnDe>2021-04-21</przwnerPresnatnDe>
+                <rceptBgnde>2021-04-12</rceptBgnde>
+                <rceptEndde>2021-04-15</rceptEndde>
+                <rcritPblancDe>20210329</rcritPblancDe>
+                <rentSecdNm>분양주택</rentSecdNm>
+                <sido>경기</sido>
             </item>
             <item>
-                <bsnsmbynm>아시아신탁주식회사</bsnsmbynm>
-                <housedetailsecdnm>민영</housedetailsecdnm>
-                <housemanageno>2021000200</housemanageno>
-                <housename>횡성 벨라시티</housename>
-                <sido>강원</sido>
-                <pblancno>2021000200</pblancno>
-                <przwnerpresnatnde>2021-04-20</przwnerpresnatnde>
-                <rceptbgnde>2021-04-12</rceptbgnde>
-                <rceptendde>2021-04-14</rceptendde>
-                <rcritpblancde>20210331</rcritpblancde>
-                <rentsecdnm>분양주택</rentsecdnm>
+                <bsnsMbyNm>아시아신탁주식회사</bsnsMbyNm>
+                <houseDtlSecdNm>민영</houseDtlSecdNm>
+                <houseManageNo>2021000186</houseManageNo>
+                <houseNm>이안 더 프리미스 노형</houseNm>
+                <pblancNo>2021000186</pblancNo>
+                <przwnerPresnatnDe>2021-04-12</przwnerPresnatnDe>
+                <rceptBgnde>2021-04-05</rceptBgnde>
+                <rceptEndde>2021-04-06</rceptEndde>
+                <rcritPblancDe>20210326</rcritPblancDe>
+                <rentSecdNm>분양주택</rentSecdNm>
+                <sido>제주</sido>
             </item>
             <item>
-                <bsnsmbynm>아시아신탁주식회사</bsnsmbynm>
-                <housedetailsecdnm>민영</housedetailsecdnm>
-                <housemanageno>2021000200</housemanageno>
-                <housename>횡성 벨라시티</housename>
-                <sido>강원</sido>
-                <pblancno>2021000200</pblancno>
-                <przwnerpresnatnde>2021-04-20</przwnerpresnatnde>
-                <rceptbgnde>2021-04-12</rceptbgnde>
-                <rceptendde>2021-04-14</rceptendde>
-                <rcritpblancde>20210331</rcritpblancde>
-                <rentsecdnm>분양주택</rentsecdnm>
+                <bsnsMbyNm>대방개발기업(주)</bsnsMbyNm>
+                <houseDtlSecdNm>민영</houseDtlSecdNm>
+                <houseManageNo>2021000159</houseManageNo>
+                <houseNm>파주운정신도시 디에트르 라 포레(A-37BL)</houseNm>
+                <pblancNo>2021000159</pblancNo>
+                <przwnerPresnatnDe>2021-04-15</przwnerPresnatnDe>
+                <rceptBgnde>2021-04-06</rceptBgnde>
+                <rceptEndde>2021-04-08</rceptEndde>
+                <rcritPblancDe>20210326</rcritPblancDe>
+                <rentSecdNm>분양주택</rentSecdNm>
+                <sido>경기</sido>
             </item>
             <item>
-                <bsnsmbynm>아시아신탁주식회사</bsnsmbynm>
-                <housedetailsecdnm>민영</housedetailsecdnm>
-                <housemanageno>2021000200</housemanageno>
-                <housename>횡성 벨라시티</housename>
-                <sido>강원</sido>
-                <pblancno>2021000200</pblancno>
-                <przwnerpresnatnde>2021-04-20</przwnerpresnatnde>
-                <rceptbgnde>2021-04-12</rceptbgnde>
-                <rceptendde>2021-04-14</rceptendde>
-                <rcritpblancde>20210331</rcritpblancde>
-                <rentsecdnm>분양주택</rentsecdnm>
+                <bsnsMbyNm>대방개발기업(주)</bsnsMbyNm>
+                <houseDtlSecdNm>민영</houseDtlSecdNm>
+                <houseManageNo>2021000158</houseManageNo>
+                <houseNm>파주운정신도시 디에트르 더 클래스(A-35BL)</houseNm>
+                <pblancNo>2021000158</pblancNo>
+                <przwnerPresnatnDe>2021-04-14</przwnerPresnatnDe>
+                <rceptBgnde>2021-04-06</rceptBgnde>
+                <rceptEndde>2021-04-08</rceptEndde>
+                <rcritPblancDe>20210326</rcritPblancDe>
+                <rentSecdNm>분양주택</rentSecdNm>
+                <sido>경기</sido>
             </item>
         </items>
         <numOfRows>10</numOfRows>
         <pageNo>1</pageNo>
-        <totalCount>308</totalCount>
+        <totalCount>91</totalCount>
     </body>
 </response>
