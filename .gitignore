@@ -43,3 +43,7 @@ out/
 .DS_Store
 .AppleDouble
 .LSOverride
+
+### Properties ###
+application-dev.properties
+application-openapi.properties
