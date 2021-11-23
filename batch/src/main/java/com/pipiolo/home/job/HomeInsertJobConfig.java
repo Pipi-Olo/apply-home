@@ -1,8 +1,9 @@
 package com.pipiolo.home.job;
 
+import com.pipiolo.home.adapter.HomeApiResource;
 import com.pipiolo.home.dto.HomeDto;
-import com.pipiolo.home.service.HomeRequestService;
 import com.pipiolo.home.dto.HomeRequest;
+import com.pipiolo.home.service.HomeRequestService;
 import com.pipiolo.home.service.HomeService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -21,7 +22,6 @@ import org.springframework.batch.item.xml.builder.StaxEventItemReaderBuilder;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.core.io.ClassPathResource;
 import org.springframework.oxm.jaxb.Jaxb2Marshaller;
 
 @Slf4j
@@ -31,6 +31,8 @@ public class HomeInsertJobConfig {
 
     private final JobBuilderFactory jobBuilderFactory;
     private final StepBuilderFactory stepBuilderFactory;
+
+    private final HomeApiResource homeApiResource;
 
     @Bean
     public Job homeInsertJob(Step homeInsertStep) {
@@ -63,7 +65,8 @@ public class HomeInsertJobConfig {
     ) {
         return new StaxEventItemReaderBuilder<HomeDto>()
                 .name("homeItemReader")
-                .resource(new ClassPathResource(filePath))
+                .resource(homeApiResource.getResource())
+//                .resource(new ClassPathResource(filePath))
                 .addFragmentRootElements("item")
                 .unmarshaller(jaxb2Marshaller)
                 .build();
