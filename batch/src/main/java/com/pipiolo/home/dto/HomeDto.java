@@ -1,4 +1,4 @@
-package com.pipiolo.home.batch.dto;
+package com.pipiolo.home.dto;
 
 import lombok.Getter;
 import lombok.ToString;
@@ -60,5 +60,18 @@ public class HomeDto {
     public LocalDate getAnnouncementDay() {
         return LocalDate.parse(announcementDay,
                 DateTimeFormatter.ofPattern("yyyy-MM-dd"));
+    }
+
+    public HomeRequest toRequest() {
+        HomeRequest request = new HomeRequest();
+        request.setNoticeId(this.getNoticeId());
+        request.setHouseName(this.getHouseName());
+        request.setConstructionCompany(this.getConstructionCompany());
+        request.setRegion(this.getRegion());
+        request.setSubscriptionStartDay(this.getSubscriptionStartDay());
+        request.setSubscriptionEndDay(this.getSubscriptionEndDay());
+        request.setAnnouncementDay(this.getAnnouncementDay());
+
+        return request;
     }
 }
