@@ -45,5 +45,5 @@ out/
 .LSOverride
 
 ### Properties ###
-application-db.properties
+application-dev.properties
 application-openapi.properties
