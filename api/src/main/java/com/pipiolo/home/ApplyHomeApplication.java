@@ -1,4 +1,4 @@
-package com.pipiolo.home.api;
+package com.pipiolo.home;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
