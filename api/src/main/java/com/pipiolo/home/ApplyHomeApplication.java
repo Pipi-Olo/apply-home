@@ -1,15 +1,12 @@
-package com.pipiolo.applyhome;
+package com.pipiolo.home;
 
-import org.springframework.batch.core.configuration.annotation.EnableBatchProcessing;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
-@EnableBatchProcessing
 @SpringBootApplication
 public class ApplyHomeApplication {
 
     public static void main(String[] args) {
         SpringApplication.run(ApplyHomeApplication.class, args);
     }
-
 }
