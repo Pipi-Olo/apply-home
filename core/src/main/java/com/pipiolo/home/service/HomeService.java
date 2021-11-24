@@ -5,8 +5,9 @@ import com.pipiolo.home.dto.HomeRequest;
 import com.pipiolo.home.repository.HomeRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
-import javax.transaction.Transactional;
+import java.util.List;
 
 @RequiredArgsConstructor
 @Service
@@ -21,6 +22,11 @@ public class HomeService {
 
         home.update(request);
         homeRepository.save(home);
+    }
+
+    @Transactional(readOnly = true)
+    public List<Home> getHomes() {
+        return homeRepository.findAll();
     }
 }
 
