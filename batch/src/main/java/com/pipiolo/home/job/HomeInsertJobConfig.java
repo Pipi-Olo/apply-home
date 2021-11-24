@@ -1,8 +1,9 @@
 package com.pipiolo.home.job;
 
+import com.pipiolo.home.adapter.HomeApiResource;
 import com.pipiolo.home.dto.HomeDto;
-import com.pipiolo.home.service.HomeRequestService;
 import com.pipiolo.home.dto.HomeRequest;
+import com.pipiolo.home.service.HomeRequestService;
 import com.pipiolo.home.service.HomeService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -21,7 +22,6 @@ import org.springframework.batch.item.xml.builder.StaxEventItemReaderBuilder;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.core.io.ClassPathResource;
 import org.springframework.oxm.jaxb.Jaxb2Marshaller;
 
 @Slf4j
@@ -31,6 +31,8 @@ public class HomeInsertJobConfig {
 
     private final JobBuilderFactory jobBuilderFactory;
     private final StepBuilderFactory stepBuilderFactory;
+
+    private final HomeApiResource homeApiResource;
 
     @Bean
     public Job homeInsertJob(Step homeInsertStep) {
@@ -58,12 +60,14 @@ public class HomeInsertJobConfig {
     @StepScope
     @Bean
     public StaxEventItemReader<HomeDto> homeItemReader(
-            @Value("#{jobParameters['filePath']}") String filePath,
+            @Value("#{jobParameters['startMonth']}") String startMonth,
+            @Value("#{jobParameters['endMonth']}") String endMonth,
             Jaxb2Marshaller jaxb2Marshaller
     ) {
         return new StaxEventItemReaderBuilder<HomeDto>()
                 .name("homeItemReader")
-                .resource(new ClassPathResource(filePath))
+                .resource(homeApiResource.getResource(startMonth, endMonth))
+//                .resource(new ClassPathResource(filePath))
                 .addFragmentRootElements("item")
                 .unmarshaller(jaxb2Marshaller)
                 .build();
@@ -109,7 +113,7 @@ public class HomeInsertJobConfig {
         return items -> {
             items.forEach(homeService::upsert);
 //            items.forEach(System.out::println);
-            System.out.println("============= Writing Completed =============");
+//            System.out.println("============= Writing Completed =============");
         };
     }
 }

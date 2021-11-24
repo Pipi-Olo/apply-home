@@ -1,11 +1,13 @@
 package com.pipiolo.home.domain;
 
+import com.pipiolo.home.constant.HouseType;
+import com.pipiolo.home.constant.SubscriptionType;
 import com.pipiolo.home.dto.HomeRequest;
 import lombok.Getter;
 import lombok.Setter;
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.LastModifiedDate;
-import org.springframework.data.jpa.repository.config.EnableJpaAuditing;
+import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 import javax.persistence.*;
 import java.time.LocalDate;
@@ -13,7 +15,7 @@ import java.time.LocalDateTime;
 
 @Getter
 @Setter
-@EntityListeners(EnableJpaAuditing.class)
+@EntityListeners(AuditingEntityListener.class)
 @Entity
 public class Home {
 
@@ -22,25 +24,37 @@ public class Home {
     private Long id;
 
     @Column(nullable = false)
-    private Long noticeId;
+    private Long noticeId;                      /* 공고번호 */
 
-    @Column
-    private String houseName;
+    @Column(nullable = false)
+    private Long houseManagementId;             /* 주택관리번호 */
 
-    @Column
-    private String constructionCompany;
+    @Column(nullable = false)
+    private String houseName;                   /* 주택명 */
 
-    @Column
-    private String region;
+    @Column(nullable = false)
+    private String constructionCompany;         /* 건설 업체 */
 
-    @Column
-    private LocalDate subscriptionStartDay;
+    @Column(nullable = false)
+    private String region;                      /* 공급 지역 */
 
-    @Column
-    private LocalDate subscriptionEndDay;
+    @Column(nullable = false)
+    private SubscriptionType subscriptionType;  /* 분양 / 임대 */
 
-    @Column
-    private LocalDate announcementDay;
+    @Column(nullable = false)
+    private HouseType houseType;                /* 주택 구분(국민주택 / 민영주택) */
+
+    @Column(nullable = false)
+    private LocalDate recruitmentDay;           /* 모집 공고일 */
+
+    @Column(nullable = false)
+    private LocalDate subscriptionStartDay;     /* 청약 접수 시작일 */
+
+    @Column(nullable = false)
+    private LocalDate subscriptionEndDay;       /* 청약 접수 종료일 */
+
+    @Column(nullable = false)
+    private LocalDate announcementDay;          /* 당첨자 발표 일*/
 
     @CreatedDate
     private LocalDateTime createdAt;
@@ -51,9 +65,13 @@ public class Home {
     public static Home from(HomeRequest dto) {
         Home home = new Home();
         home.setNoticeId(dto.getNoticeId());
+        home.setHouseManagementId(dto.getHouseManagementId());
         home.setHouseName(dto.getHouseName());
         home.setConstructionCompany(dto.getConstructionCompany());
         home.setRegion(dto.getRegion());
+        home.setSubscriptionType(dto.getSubscriptionType());
+        home.setHouseType(dto.getHouseType());
+        home.setRecruitmentDay(dto.getRecruitmentDay());
         home.setSubscriptionStartDay(dto.getSubscriptionStartDay());
         home.setSubscriptionEndDay(dto.getSubscriptionEndDay());
         home.setAnnouncementDay(dto.getAnnouncementDay());
@@ -65,6 +83,9 @@ public class Home {
         this.houseName = dto.getHouseName();
         this.constructionCompany = dto.getConstructionCompany();
         this.region = dto.getRegion();
+        this.subscriptionType = dto.getSubscriptionType();
+        this.houseType = dto.getHouseType();
+        this.recruitmentDay = dto.getRecruitmentDay();
         this.subscriptionStartDay =dto.getSubscriptionStartDay();
         this.subscriptionEndDay = dto.getSubscriptionEndDay();
         this.announcementDay = dto.getAnnouncementDay();
