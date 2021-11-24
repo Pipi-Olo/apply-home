@@ -60,12 +60,13 @@ public class HomeInsertJobConfig {
     @StepScope
     @Bean
     public StaxEventItemReader<HomeDto> homeItemReader(
-            @Value("#{jobParameters['filePath']}") String filePath,
+            @Value("#{jobParameters['startMonth']}") String startMonth,
+            @Value("#{jobParameters['endMonth']}") String endMonth,
             Jaxb2Marshaller jaxb2Marshaller
     ) {
         return new StaxEventItemReaderBuilder<HomeDto>()
                 .name("homeItemReader")
-                .resource(homeApiResource.getResource())
+                .resource(homeApiResource.getResource(startMonth, endMonth))
 //                .resource(new ClassPathResource(filePath))
                 .addFragmentRootElements("item")
                 .unmarshaller(jaxb2Marshaller)
@@ -112,7 +113,7 @@ public class HomeInsertJobConfig {
         return items -> {
             items.forEach(homeService::upsert);
 //            items.forEach(System.out::println);
-            System.out.println("============= Writing Completed =============");
+//            System.out.println("============= Writing Completed =============");
         };
     }
 }

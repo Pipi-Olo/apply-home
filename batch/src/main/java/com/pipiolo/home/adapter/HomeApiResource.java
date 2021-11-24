@@ -18,9 +18,9 @@ public class HomeApiResource {
     @Value("${external.home-api.service-key}")
     private String serviceKey;
 
-    public Resource getResource() {
+    public Resource getResource(String startMonth, String endMonth) {
         String url = String.format("%s?serviceKey=%s&startmonth=%s&endmonth=%s",
-                path, serviceKey, "202101", "202103");
+                path, serviceKey, startMonth, endMonth);
 
         log.info("Resource URL = " + url);
 
