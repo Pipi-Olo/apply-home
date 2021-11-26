@@ -1,9 +1,13 @@
 package com.pipiolo.home.service;
 
+import com.pipiolo.home.constant.HouseType;
+import com.pipiolo.home.constant.SubscriptionType;
 import com.pipiolo.home.domain.Home;
 import com.pipiolo.home.dto.HomeRequest;
 import com.pipiolo.home.repository.HomeRepository;
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -27,6 +31,21 @@ public class HomeService {
     @Transactional(readOnly = true)
     public List<Home> getHomes() {
         return homeRepository.findAll();
+    }
+
+    @Transactional(readOnly = true)
+    public Page<Home> findHomeBySearchParams(
+            String region,
+            SubscriptionType subscriptionType,
+            HouseType houseType,
+            Pageable pageable
+    ) {
+        return homeRepository.findHomeBySearchParams(
+                region,
+                subscriptionType,
+                houseType,
+                pageable
+        );
     }
 }
 
