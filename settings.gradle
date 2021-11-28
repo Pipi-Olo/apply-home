@@ -1,0 +1,5 @@
+rootProject.name = 'apply-home'
+include 'batch'
+include 'api'
+include 'core'
+
