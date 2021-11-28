@@ -20,12 +20,12 @@ public class HomeService {
     private final HomeRepository homeRepository;
 
     @Transactional
-    public void upsert(HomeRequest request) {
+    public Home upsert(HomeRequest request) {
         Home home = homeRepository.findByNoticeId(request.getNoticeId())
                 .orElseGet(() -> Home.from(request));
 
         home.update(request);
-        homeRepository.save(home);
+        return homeRepository.save(home);
     }
 
     @Transactional(readOnly = true)
