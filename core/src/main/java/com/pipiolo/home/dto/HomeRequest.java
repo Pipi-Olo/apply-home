@@ -2,17 +2,13 @@ package com.pipiolo.home.dto;
 
 import com.pipiolo.home.constant.HouseType;
 import com.pipiolo.home.constant.SubscriptionType;
-import lombok.Builder;
-import lombok.Getter;
-import lombok.Setter;
-import lombok.ToString;
+import lombok.*;
 
 import java.time.LocalDate;
 
-@Getter
 @Setter
-@ToString
-@Builder
+@Getter
+@NoArgsConstructor
 public class HomeRequest {
 
     private Long noticeId;

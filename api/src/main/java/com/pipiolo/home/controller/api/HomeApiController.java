@@ -6,7 +6,7 @@ import com.pipiolo.home.service.HomeService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.data.domain.Page;
-import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -24,13 +24,14 @@ public class HomeApiController {
 
     @GetMapping("/home")
     public Page<Home> findHomesBySearchParams(
-            @Valid @RequestBody HomeSearchRequest request
+            @Valid @RequestBody HomeSearchRequest request,
+            Pageable pageable
     ) {
         return homeService.findHomeBySearchParams(
                 request.getRegion(),
                 request.getSubscriptionType(),
                 request.getHouseType(),
-                PageRequest.of(0, 5)
+                pageable
         );
     }
 }

@@ -95,18 +95,19 @@ class HomeRepositoryTest {
     }
 
     private HomeRequest createHomeRequest() {
-        return HomeRequest.builder()
-                .noticeId(2021000222L)
-                .houseManagementId(2021000222L)
-                .houseName("가포금호어울림 10년공공임대주택(리츠)")
-                .constructionCompany("한국토지주택공사 경남지역본부")
-                .region("경남")
-                .subscriptionType(PARCEL)
-                .houseType(PRIVATE_HOUSE)
-                .recruitmentDay(LocalDate.now())
-                .subscriptionStartDay(LocalDate.now())
-                .subscriptionEndDay(LocalDate.now().plusMonths(3L))
-                .announcementDay(LocalDate.now().plusMonths(6L))
-                .build();
+        HomeRequest request = new HomeRequest();
+        request.setNoticeId(2021000222L);
+        request.setHouseManagementId(2021000222L);
+        request.setHouseName("가포금호어울림 10년공공임대주택(리츠)");
+        request.setConstructionCompany("한국토지주택공사 경남지역본부");
+        request.setRegion("경남");
+        request.setSubscriptionType(PARCEL);
+        request.setHouseType(PRIVATE_HOUSE);
+        request.setRecruitmentDay(LocalDate.now());
+        request.setSubscriptionStartDay(LocalDate.now());
+        request.setSubscriptionEndDay(LocalDate.now().plusMonths(3L));
+        request.setAnnouncementDay(LocalDate.now().plusMonths(6L));
+
+        return request;
     }
 }
