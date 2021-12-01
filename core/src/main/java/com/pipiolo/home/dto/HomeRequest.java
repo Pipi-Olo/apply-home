@@ -2,24 +2,65 @@ package com.pipiolo.home.dto;
 
 import com.pipiolo.home.constant.HouseType;
 import com.pipiolo.home.constant.SubscriptionType;
-import lombok.*;
+import com.pipiolo.home.domain.Home;
 
 import java.time.LocalDate;
 
-@Setter
-@Getter
-@NoArgsConstructor
-public class HomeRequest {
+public record HomeRequest(
+        Long noticeId,
+        Long houseManagementId,
+        String houseName,
+        String constructionCompany,
+        String region,
+        SubscriptionType subscriptionType,
+        HouseType houseType,
+        LocalDate recruitmentDay,
+        LocalDate subscriptionStartDay,
+        LocalDate subscriptionEndDay,
+        LocalDate announcementDay
+) {
+    public Home toEntity() {
+        return Home.builder()
+                .noticeId(this.noticeId)
+                .houseManagementId(this.houseManagementId)
+                .houseName(this.houseName)
+                .constructionCompany(this.constructionCompany)
+                .region(this.region)
+                .subscriptionType(this.subscriptionType)
+                .houseType(this.houseType)
+                .recruitmentDay(this.recruitmentDay)
+                .subscriptionStartDay(this.subscriptionStartDay)
+                .subscriptionEndDay(this.subscriptionEndDay)
+                .announcementDay(this.announcementDay)
+                .build();
+    }
 
-    private Long noticeId;
-    private Long houseManagementId;
-    private String houseName;
-    private String constructionCompany;
-    private String region;
-    private SubscriptionType subscriptionType;
-    private HouseType houseType;
-    private LocalDate recruitmentDay;
-    private LocalDate subscriptionStartDay;
-    private LocalDate subscriptionEndDay;
-    private LocalDate announcementDay;
+    public static HomeRequest of(
+            Long noticeId,
+            Long houseManagementId,
+            String houseName,
+            String constructionCompany,
+            String region,
+            SubscriptionType subscriptionType,
+            HouseType houseType,
+            LocalDate recruitmentDay,
+            LocalDate subscriptionStartDay,
+            LocalDate subscriptionEndDay,
+            LocalDate announcementDay
+    ) {
+        return new HomeRequest(
+                noticeId,
+                houseManagementId,
+                houseName,
+                constructionCompany,
+                region,
+                subscriptionType,
+                houseType,
+                recruitmentDay,
+                subscriptionStartDay,
+                subscriptionEndDay,
+                announcementDay
+        );
+    }
+
 }
