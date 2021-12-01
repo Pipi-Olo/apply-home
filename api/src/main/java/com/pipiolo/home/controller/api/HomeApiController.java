@@ -1,6 +1,6 @@
 package com.pipiolo.home.controller.api;
 
-import com.pipiolo.home.domain.Home;
+import com.pipiolo.home.dto.HomeResponse;
 import com.pipiolo.home.dto.HomeSearchRequest;
 import com.pipiolo.home.service.HomeService;
 import lombok.RequiredArgsConstructor;
@@ -23,7 +23,7 @@ public class HomeApiController {
     private final HomeService homeService;
 
     @GetMapping("/home")
-    public Page<Home> findHomesBySearchParams(
+    public Page<HomeResponse> findHomesBySearchParams(
             @Valid @RequestBody HomeSearchRequest request,
             Pageable pageable
     ) {

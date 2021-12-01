@@ -1,5 +1,7 @@
 package com.pipiolo.home.dto;
 
+import com.pipiolo.home.constant.HouseType;
+import com.pipiolo.home.constant.SubscriptionType;
 import lombok.Getter;
 import lombok.ToString;
 
@@ -25,6 +27,15 @@ public class HomeDto {
     /* 주택 구분 민영 / 국민 */
     @XmlElement(name = "houseDtlSecdNm")
     private String houseType;
+
+    public HouseType getHouseType() {
+        if (this.houseType == "국민") {
+            return NATIONAL_HOUSE;
+        }
+        else {
+            return PRIVATE_HOUSE;
+        }
+    }
 
     /* 주택관리번호 */
     @XmlElement(name = "houseManageNo")
@@ -86,33 +97,32 @@ public class HomeDto {
     @XmlElement(name = "rentSecdNm")
     private String subscriptionType;
 
+    public SubscriptionType getSubscriptionType() {
+        if (this.subscriptionType == "분양") {
+            return PARCEL;
+        }
+        else {
+            return RENT;
+        }
+    }
+
     /* 공급 지역 */
     @XmlElement(name = "sido")
     private String region;
 
     public HomeRequest toRequest() {
-        HomeRequest request = new HomeRequest();
-        request.setNoticeId(this.getNoticeId());
-        request.setHouseManagementId(this.getHouseManagementId());
-        request.setHouseName(this.getHouseName());
-        request.setConstructionCompany(this.getConstructionCompany());
-        request.setRegion(this.getRegion());
-
-        if (this.getSubscriptionType() == "분양") {
-            request.setSubscriptionType(PARCEL);}
-        else
-            request.setSubscriptionType(RENT);
-
-        if (this.getHouseType() == "국민") {
-            request.setHouseType(NATIONAL_HOUSE);}
-        else {
-            request.setHouseType(PRIVATE_HOUSE);}
-
-        request.setRecruitmentDay(this.getRecruitmentDay());
-        request.setSubscriptionStartDay(this.getSubscriptionStartDay());
-        request.setSubscriptionEndDay(this.getSubscriptionEndDay());
-        request.setAnnouncementDay(this.getAnnouncementDay());
-
-        return request;
+        return HomeRequest.of(
+                this.getNoticeId(),
+                this.getHouseManagementId(),
+                this.getHouseName(),
+                this.getConstructionCompany(),
+                this.getRegion(),
+                this.getSubscriptionType(),
+                this.getHouseType(),
+                this.getRecruitmentDay(),
+                this.getSubscriptionStartDay(),
+                this.getSubscriptionEndDay(),
+                this.getAnnouncementDay()
+        );
     }
 }
