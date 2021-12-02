@@ -21,12 +21,12 @@ public class HomeService {
     private final HomeRepository homeRepository;
 
     @Transactional
-    public Home upsert(HomeRequest request) {
+    public HomeResponse upsert(HomeRequest request) {
         Home home = homeRepository.findByNoticeId(request.noticeId())
                 .orElseGet(() -> request.toEntity());
 
         home.update(request);
-        return homeRepository.save(home);
+        return HomeResponse.from(homeRepository.save(home));
     }
 
     @Transactional(readOnly = true)
