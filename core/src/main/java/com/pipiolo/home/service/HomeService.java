@@ -4,6 +4,7 @@ import com.pipiolo.home.constant.HouseType;
 import com.pipiolo.home.constant.SubscriptionType;
 import com.pipiolo.home.domain.Home;
 import com.pipiolo.home.dto.HomeRequest;
+import com.pipiolo.home.dto.HomeResponse;
 import com.pipiolo.home.repository.HomeRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
@@ -20,21 +21,22 @@ public class HomeService {
     private final HomeRepository homeRepository;
 
     @Transactional
-    public Home upsert(HomeRequest request) {
-        Home home = homeRepository.findByNoticeId(request.getNoticeId())
-                .orElseGet(() -> Home.from(request));
+    public HomeResponse upsert(HomeRequest request) {
+        Home home = homeRepository.findByNoticeId(request.noticeId())
+                .orElseGet(() -> request.toEntity());
 
         home.update(request);
-        return homeRepository.save(home);
+        return HomeResponse.from(homeRepository.save(home));
     }
 
     @Transactional(readOnly = true)
-    public List<Home> getHomes() {
-        return homeRepository.findAll();
+    public List<HomeResponse> getHomes() {
+        return homeRepository.findAll()
+                .stream().map(HomeResponse::from).toList();
     }
 
     @Transactional(readOnly = true)
-    public Page<Home> findHomeBySearchParams(
+    public Page<HomeResponse> findHomeBySearchParams(
             String region,
             SubscriptionType subscriptionType,
             HouseType houseType,

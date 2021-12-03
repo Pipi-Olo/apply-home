@@ -4,6 +4,8 @@ import com.pipiolo.home.constant.HouseType;
 import com.pipiolo.home.constant.SubscriptionType;
 import com.pipiolo.home.domain.Home;
 import com.pipiolo.home.domain.QHome;
+import com.pipiolo.home.dto.HomeResponse;
+import com.querydsl.core.types.Projections;
 import com.querydsl.jpa.JPQLQuery;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageImpl;
@@ -23,14 +25,28 @@ public class HomeRepositoryCustomImpl
     }
 
     @Override
-    public Page<Home> findHomeBySearchParams(
+    public Page<HomeResponse> findHomeBySearchParams(
             String region,
             SubscriptionType subscriptionType,
             HouseType houseType,
             Pageable pageable
     ) {
         QHome home = QHome.home;
-        JPQLQuery<Home> query = from(home);
+        JPQLQuery<HomeResponse> query = from(home)
+                .select(Projections.constructor(
+                        HomeResponse.class,
+                        home.noticeId,
+                        home.houseManagementId,
+                        home.houseName,
+                        home.constructionCompany,
+                        home.region,
+                        home.subscriptionType,
+                        home.houseType,
+                        home.recruitmentDay,
+                        home.subscriptionStartDay,
+                        home.subscriptionEndDay,
+                        home.announcementDay
+                ));
 
         if (region != null && !region.isBlank()) {
             query.where(home.region.eq(region));
@@ -42,7 +58,7 @@ public class HomeRepositoryCustomImpl
             query.where(home.houseType.eq(houseType));
         }
 
-        List<Home> homeList = Optional.ofNullable(getQuerydsl())
+        List<HomeResponse> homeList = Optional.ofNullable(getQuerydsl())
                 .orElseThrow(() -> new IllegalArgumentException("Spring Data JPA Querydsl 인스턴스 생성 오류"))
                 .applyPagination(pageable, query)
                 .fetch();
