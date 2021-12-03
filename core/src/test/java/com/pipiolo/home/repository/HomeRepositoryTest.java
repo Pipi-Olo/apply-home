@@ -2,8 +2,8 @@ package com.pipiolo.home.repository;
 
 import com.pipiolo.home.constant.HouseType;
 import com.pipiolo.home.constant.SubscriptionType;
-import com.pipiolo.home.domain.Home;
 import com.pipiolo.home.dto.HomeRequest;
+import com.pipiolo.home.dto.HomeResponse;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -30,7 +30,7 @@ class HomeRepositoryTest {
 
     @BeforeEach
     void before() {
-        homeRepository.save(Home.from(createHomeRequest()));
+        homeRepository.save(createHomeRequest().toEntity());
     }
 
     @DisplayName("[Querydsl] 검색 파라미터와 함께 조회하면, 조건에 맞는 데이터를 페이징 처리하여 반환한다.")
@@ -42,7 +42,7 @@ class HomeRepositoryTest {
         HouseType houseType = PRIVATE_HOUSE;
 
         // When
-        Page<Home> actual = homeRepository.findHomeBySearchParams(
+        Page<HomeResponse> actual = homeRepository.findHomeBySearchParams(
                 region,
                 subscriptionType,
                 houseType,
@@ -64,7 +64,7 @@ class HomeRepositoryTest {
         SubscriptionType subscriptionType = PARCEL;
 
         // When
-        Page<Home> actual = homeRepository.findHomeBySearchParams(
+        Page<HomeResponse> actual = homeRepository.findHomeBySearchParams(
                 region,
                 subscriptionType,
                 null,
@@ -83,7 +83,7 @@ class HomeRepositoryTest {
         // Given
 
         // When
-        Page<Home> actual = homeRepository.findHomeBySearchParams(
+        Page<HomeResponse> actual = homeRepository.findHomeBySearchParams(
                 null,
                 null,
                 null,
@@ -95,19 +95,18 @@ class HomeRepositoryTest {
     }
 
     private HomeRequest createHomeRequest() {
-        HomeRequest request = new HomeRequest();
-        request.setNoticeId(2021000222L);
-        request.setHouseManagementId(2021000222L);
-        request.setHouseName("가포금호어울림 10년공공임대주택(리츠)");
-        request.setConstructionCompany("한국토지주택공사 경남지역본부");
-        request.setRegion("경남");
-        request.setSubscriptionType(PARCEL);
-        request.setHouseType(PRIVATE_HOUSE);
-        request.setRecruitmentDay(LocalDate.now());
-        request.setSubscriptionStartDay(LocalDate.now());
-        request.setSubscriptionEndDay(LocalDate.now().plusMonths(3L));
-        request.setAnnouncementDay(LocalDate.now().plusMonths(6L));
-
-        return request;
+        return HomeRequest.of(
+                2021000222L,
+                2021000222L,
+                "가포금호어울림 10년공공임대주택(리츠)",
+                "한국토지주택공사 경남지역본부",
+                "경남",
+                PARCEL,
+                PRIVATE_HOUSE,
+                LocalDate.now(),
+                LocalDate.now(),
+                LocalDate.now().plusMonths(3L),
+                LocalDate.now().plusMonths(6L)
+        );
     }
 }

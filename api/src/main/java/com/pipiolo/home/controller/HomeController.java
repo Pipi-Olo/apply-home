@@ -1,6 +1,6 @@
 package com.pipiolo.home.controller;
 
-import com.pipiolo.home.domain.Home;
+import com.pipiolo.home.dto.HomeResponse;
 import com.pipiolo.home.service.HomeService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
@@ -22,7 +22,7 @@ public class HomeController {
     @GetMapping()
     public ModelAndView homes() {
         Map<String, Object> map = new HashMap<>();
-        List<Home> homeList = homeService.getHomes();
+        List<HomeResponse> homeList = homeService.getHomes();
         map.put("homes", homeList);
 
         return new ModelAndView("home/index", map);

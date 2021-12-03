@@ -3,7 +3,9 @@ package com.pipiolo.home.domain;
 import com.pipiolo.home.constant.HouseType;
 import com.pipiolo.home.constant.SubscriptionType;
 import com.pipiolo.home.dto.HomeRequest;
+import lombok.Builder;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.LastModifiedDate;
@@ -15,6 +17,7 @@ import java.time.LocalDateTime;
 
 @Getter
 @Setter
+@NoArgsConstructor
 @EntityListeners(AuditingEntityListener.class)
 @Entity
 public class Home {
@@ -38,9 +41,11 @@ public class Home {
     @Column(nullable = false)
     private String region;                      /* 공급 지역 */
 
+    @Enumerated(value = EnumType.STRING)
     @Column(nullable = false)
     private SubscriptionType subscriptionType;  /* 분양 / 임대 */
 
+    @Enumerated(value = EnumType.STRING)
     @Column(nullable = false)
     private HouseType houseType;                /* 주택 구분(국민주택 / 민영주택) */
 
@@ -62,32 +67,42 @@ public class Home {
     @LastModifiedDate
     private LocalDateTime updatedAt;
 
-    public static Home from(HomeRequest dto) {
-        Home home = new Home();
-        home.setNoticeId(dto.getNoticeId());
-        home.setHouseManagementId(dto.getHouseManagementId());
-        home.setHouseName(dto.getHouseName());
-        home.setConstructionCompany(dto.getConstructionCompany());
-        home.setRegion(dto.getRegion());
-        home.setSubscriptionType(dto.getSubscriptionType());
-        home.setHouseType(dto.getHouseType());
-        home.setRecruitmentDay(dto.getRecruitmentDay());
-        home.setSubscriptionStartDay(dto.getSubscriptionStartDay());
-        home.setSubscriptionEndDay(dto.getSubscriptionEndDay());
-        home.setAnnouncementDay(dto.getAnnouncementDay());
-
-        return home;
+    @Builder
+    public Home(
+            Long noticeId,
+            Long houseManagementId,
+            String houseName,
+            String constructionCompany,
+            String region,
+            SubscriptionType subscriptionType,
+            HouseType houseType,
+            LocalDate recruitmentDay,
+            LocalDate subscriptionStartDay,
+            LocalDate subscriptionEndDay,
+            LocalDate announcementDay
+    ) {
+        this.noticeId = noticeId;
+        this.houseManagementId = houseManagementId;
+        this.houseName = houseName;
+        this.constructionCompany = constructionCompany;
+        this.region = region;
+        this.subscriptionType = subscriptionType;
+        this.houseType = houseType;
+        this.recruitmentDay = recruitmentDay;
+        this.subscriptionStartDay = subscriptionStartDay;
+        this.subscriptionEndDay = subscriptionEndDay;
+        this.announcementDay = announcementDay;
     }
 
-    public void update(HomeRequest dto) {
-        this.houseName = dto.getHouseName();
-        this.constructionCompany = dto.getConstructionCompany();
-        this.region = dto.getRegion();
-        this.subscriptionType = dto.getSubscriptionType();
-        this.houseType = dto.getHouseType();
-        this.recruitmentDay = dto.getRecruitmentDay();
-        this.subscriptionStartDay =dto.getSubscriptionStartDay();
-        this.subscriptionEndDay = dto.getSubscriptionEndDay();
-        this.announcementDay = dto.getAnnouncementDay();
+    public void update(HomeRequest request) {
+        this.houseName = request.houseName();
+        this.constructionCompany = request.constructionCompany();
+        this.region = request.region();
+        this.subscriptionType = request.subscriptionType();
+        this.houseType = request.houseType();
+        this.recruitmentDay = request.recruitmentDay();
+        this.subscriptionStartDay =request.subscriptionStartDay();
+        this.subscriptionEndDay = request.subscriptionEndDay();
+        this.announcementDay = request.announcementDay();
     }
 }
