@@ -1,0 +1,21 @@
+language: java
+jdk:
+  - openjdk16
+
+branches:
+  only:
+    - main
+
+# Travis CI Server's Home
+cache:
+  directories:
+    - '$HOME/.m2/repository'
+    - '$HOME/.gradle'
+
+script: "./gradlew clean build"
+
+# CI 실행 완료시, 이메일 알람
+notifications:
+  email:
+    recipients:
+      - copy.h13@gmail.com
