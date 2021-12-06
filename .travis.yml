@@ -28,7 +28,7 @@ deploy:
     cleanup: true
     acl: private
     local_dir: deploy
-    wait-until-deployed: true
+    wait_until_deployed: true
     on:
       - all_branches: true
   - provider: codedeploy
@@ -40,7 +40,7 @@ deploy:
     application: apply-home
     deployment_group: apply-home-lightsail-group
     region: ap-northeast-2
-    wait-until-deployed: true
+    wait_until_deployed: true
     on:
       - all_branches: true
 
