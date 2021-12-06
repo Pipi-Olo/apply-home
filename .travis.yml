@@ -6,7 +6,7 @@ branches:
   only:
     - main
 
-    # Travis CI Server's Home
+# Travis CI Server's Home
 cache:
   directories:
     - '$HOME/.m2/repository'
@@ -25,13 +25,15 @@ deploy:
     secret_access_key: $AWS_SECRET_KEY
     bucket: apply-home-build
     region: ap-northeast-2
-    skip_cleanup: true
+    cleanup: true
     acl: private
     local_dir: deploy
     wait-until-deployed: true
+    on:
+      - all_branches: true
   - provider: codedeploy
     access_key_id: $AWS_ACCESS_KEY
-    secret_acces_key: $AWS_SECRET_KEY
+    secret_access_key: $AWS_SECRET_KEY
     bucket: apply-home-build
     key: apply-home.zip
     bundle_type: zip
@@ -39,6 +41,8 @@ deploy:
     deployment_group: apply-home-lightsail-group
     region: ap-northeast-2
     wait-until-deployed: true
+    on:
+      - all_branches: true
 
 # CI 실행 완료시, 이메일 알람
 notifications:
