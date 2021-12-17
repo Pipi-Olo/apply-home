@@ -2,10 +2,6 @@ language: java
 jdk:
   - openjdk16
 
-branches:
-  only:
-    - master
-
 # Travis CI Server's Home
 cache:
   directories:
