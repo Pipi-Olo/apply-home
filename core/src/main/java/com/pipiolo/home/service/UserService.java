@@ -33,7 +33,7 @@ public class UserService {
 
     @Transactional(readOnly = true)
     public List<UserResponse> getUsersContainsRegion(String region) {
-        return userRepository.findByRegions(region)
+        return userRepository.findByRegionsAndSubscribedIsTrue(region)
                 .stream().map(UserResponse::from).toList();
     }
 }

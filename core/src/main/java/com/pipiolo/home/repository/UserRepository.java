@@ -8,6 +8,6 @@ import java.util.Optional;
 
 public interface UserRepository extends JpaRepository<User, Long> {
 
-    List<User> findByRegions(String region);
+    List<User> findByRegionsAndSubscribedIsTrue(String region);
     Optional<User> findByEmail(String email);
 }

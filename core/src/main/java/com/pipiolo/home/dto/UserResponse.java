@@ -4,23 +4,23 @@ import com.pipiolo.home.domain.User;
 
 public record UserResponse(
         String email,
-        Boolean isSubscribed
+        Boolean subscribed
 ) {
 
     public static UserResponse from(User user) {
         return UserResponse.of(
                 user.getEmail(),
-                user.getIsSubscribed()
+                user.getSubscribed()
         );
     }
 
     public static UserResponse of(
             String email,
-            Boolean isSubscribed
+            Boolean subscribed
     ) {
         return new UserResponse(
                 email,
-                isSubscribed
+                subscribed
         );
     }
 }

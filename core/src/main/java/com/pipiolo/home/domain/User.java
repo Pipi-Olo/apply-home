@@ -22,21 +22,21 @@ public class User extends BaseEntity {
     private String email;
 
     @Column(nullable = false)
-    private Boolean isSubscribed;
+    private Boolean subscribed;
 
     @ElementCollection
     @Column
     private final Set<String> regions = new HashSet<>();
 
     @Builder
-    public User(String email, Boolean isSubscribed) {
+    public User(String email, Boolean subscribed) {
         this.email = email;
-        this.isSubscribed = isSubscribed;
+        this.subscribed = subscribed;
     }
 
     public void update(UserRequest request) {
         this.email = request.email();
-        this.isSubscribed = request.isSubscribed();
+        this.subscribed = request.subscribed();
     }
 
     public void addRegion(String region) {

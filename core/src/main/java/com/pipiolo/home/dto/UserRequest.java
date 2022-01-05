@@ -4,12 +4,12 @@ import com.pipiolo.home.domain.User;
 
 public record UserRequest(
         String email,
-        Boolean isSubscribed
+        Boolean subscribed
 ) {
     public User toEntity() {
         return User.builder()
                 .email(email)
-                .isSubscribed(isSubscribed)
+                .subscribed(subscribed)
                 .build();
     }
 }
