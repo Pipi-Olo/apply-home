@@ -3,6 +3,7 @@ package com.pipiolo.home.job;
 import com.pipiolo.home.adapter.HomeApiResource;
 import com.pipiolo.home.dto.HomeDto;
 import com.pipiolo.home.dto.HomeRequest;
+import com.pipiolo.home.service.EmailService;
 import com.pipiolo.home.service.HomeRequestService;
 import com.pipiolo.home.service.HomeService;
 import lombok.RequiredArgsConstructor;
@@ -108,10 +109,12 @@ public class HomeInsertJobConfig {
     @StepScope
     @Bean
     public ItemWriter<HomeRequest> homeItemWriter(
-            HomeService homeService
+            HomeService homeService,
+            EmailService emailService
     ) {
         return items -> {
             items.forEach(homeService::upsert);
+            items.forEach(emailService::send);
 //            items.forEach(System.out::println);
 //            System.out.println("============= Writing Completed =============");
         };
