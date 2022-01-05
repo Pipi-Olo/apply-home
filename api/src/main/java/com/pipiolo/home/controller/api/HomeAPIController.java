@@ -18,7 +18,7 @@ import javax.validation.Valid;
 @RequiredArgsConstructor
 @RequestMapping("/api")
 @RestController
-public class HomeApiController {
+public class HomeAPIController {
 
     private final HomeService homeService;
 
@@ -28,9 +28,9 @@ public class HomeApiController {
             Pageable pageable
     ) {
         return homeService.findHomeBySearchParams(
-                request.getRegion(),
-                request.getSubscriptionType(),
-                request.getHouseType(),
+                request.region(),
+                request.subscriptionType(),
+                request.houseType(),
                 pageable
         );
     }
