@@ -30,4 +30,10 @@ public class UserService {
         return userRepository.findAll()
                 .stream().map(UserResponse::from).toList();
     }
+
+    @Transactional(readOnly = true)
+    public List<UserResponse> getUsersContainsRegion(String region) {
+        return userRepository.findByRegions(region)
+                .stream().map(UserResponse::from).toList();
+    }
 }
