@@ -1,6 +1,6 @@
 package com.pipiolo.home.job;
 
-import com.pipiolo.home.adapter.HomeApiResource;
+import com.pipiolo.home.adapter.HomeAPIResource;
 import com.pipiolo.home.dto.HomeDto;
 import com.pipiolo.home.dto.HomeRequest;
 import com.pipiolo.home.service.EmailService;
@@ -33,7 +33,7 @@ public class HomeInsertJobConfig {
     private final JobBuilderFactory jobBuilderFactory;
     private final StepBuilderFactory stepBuilderFactory;
 
-    private final HomeApiResource homeApiResource;
+    private final HomeAPIResource homeAPIResource;
 
     @Bean
     public Job homeInsertJob(Step homeInsertStep) {
@@ -67,7 +67,7 @@ public class HomeInsertJobConfig {
     ) {
         return new StaxEventItemReaderBuilder<HomeDto>()
                 .name("homeItemReader")
-                .resource(homeApiResource.getResource(startMonth, endMonth))
+                .resource(homeAPIResource.getResource(startMonth, endMonth))
 //                .resource(new ClassPathResource(filePath))
                 .addFragmentRootElements("item")
                 .unmarshaller(jaxb2Marshaller)
