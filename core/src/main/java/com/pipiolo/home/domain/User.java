@@ -29,14 +29,16 @@ public class User extends BaseEntity {
     private final Set<String> regions = new HashSet<>();
 
     @Builder
-    public User(String email, Boolean subscribed) {
+    public User(String email, Boolean subscribed, Set<String> regions) {
         this.email = email;
         this.subscribed = subscribed;
+        this.regions.addAll(regions);
     }
 
     public void update(UserRequest request) {
         this.email = request.email();
         this.subscribed = request.subscribed();
+        this.regions.addAll(request.regions());
     }
 
     public void addRegion(String region) {
