@@ -19,7 +19,7 @@ public class HomeController {
 
     private final HomeService homeService;
 
-    @GetMapping()
+    @GetMapping("/index")
     public ModelAndView homes() {
         Map<String, Object> map = new HashMap<>();
         List<HomeResponse> homeList = homeService.getHomes();
