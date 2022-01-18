@@ -32,13 +32,13 @@ public class User extends BaseEntity {
     public User(String email, Boolean subscribed, Set<String> regions) {
         this.email = email;
         this.subscribed = subscribed;
-        this.regions.addAll(regions);
+//        this.regions.addAll(regions);
     }
 
     public void update(UserRequest request) {
         this.email = request.email();
         this.subscribed = request.subscribed();
-        this.regions.addAll(request.regions());
+//        this.regions.addAll(request.regions());
     }
 
     public void addRegion(String region) {
