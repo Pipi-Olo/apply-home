@@ -42,7 +42,7 @@ public class UserService {
     @Transactional
     public UserResponse upsert(UserRequest request) {
         User user = userRepository.findByEmail(request.email())
-                .orElseGet(() -> request.toEntity());
+                .orElseGet(request::toEntity);
 
         user.update(request);
         return UserResponse.from(userRepository.save(user));

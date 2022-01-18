@@ -23,7 +23,7 @@ public class HomeService {
     @Transactional
     public HomeResponse upsert(HomeRequest request) {
         Home home = homeRepository.findByNoticeId(request.noticeId())
-                .orElseGet(() -> request.toEntity());
+                .orElseGet(request::toEntity);
 
         home.update(request);
         return HomeResponse.from(homeRepository.save(home));
