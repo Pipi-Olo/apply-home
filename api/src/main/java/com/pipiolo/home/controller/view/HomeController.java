@@ -1,4 +1,4 @@
-package com.pipiolo.home.controller;
+package com.pipiolo.home.controller.view;
 
 import com.pipiolo.home.dto.HomeResponse;
 import com.pipiolo.home.service.HomeService;
