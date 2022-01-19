@@ -10,4 +10,5 @@ public interface UserRepository extends JpaRepository<User, Long> {
 
     List<User> findByRegionsAndSubscribedIsTrue(String region);
     Optional<User> findByEmail(String email);
+    void deleteByEmail(String email);
 }

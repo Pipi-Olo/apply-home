@@ -60,10 +60,14 @@ public class UserService {
                 .orElseThrow(() -> new GeneralException(NOT_FOUND, "There is no id=" + id)));
     }
 
-
     @Transactional(readOnly = true)
     public List<UserResponse> getUsersContainsRegion(String region) {
         return userRepository.findByRegionsAndSubscribedIsTrue(region)
                 .stream().map(UserResponse::from).toList();
+    }
+
+    @Transactional
+    public void deleteUser(String email) {
+        userRepository.deleteByEmail(email);
     }
 }
