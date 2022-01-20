@@ -13,7 +13,7 @@ import java.time.LocalDate;
 import static com.pipiolo.home.constant.HouseType.PRIVATE_HOUSE;
 import static com.pipiolo.home.constant.SubscriptionType.PARCEL;
 
-@DisplayName("[CORE] - Service")
+@DisplayName("[CORE][Service][Home]")
 @SpringBootTest
 class HomeServiceTest {
 
@@ -36,7 +36,7 @@ class HomeServiceTest {
         Assertions.assertEquals(request.noticeId(), actual.noticeId());
     }
 
-    @DisplayName("기존과 중복된 집이 주어졌을 때, 기존 값으 수정한다. - NoticeId를 통해 중복 여부 확인한다.")
+    @DisplayName("기존과 중복된 집이 주어졌을 때, 기존 값을 수정한다. - NoticeId를 통해 중복 여부 확인한다.")
     @Test
     void givenHome_whenUpsertExistingHome_thenReturnsUpdatedHome() {
         // Given

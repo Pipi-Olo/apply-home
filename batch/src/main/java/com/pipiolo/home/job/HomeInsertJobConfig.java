@@ -1,8 +1,9 @@
 package com.pipiolo.home.job;
 
-import com.pipiolo.home.adapter.HomeApiResource;
+import com.pipiolo.home.adapter.HomeAPIResource;
 import com.pipiolo.home.dto.HomeDto;
 import com.pipiolo.home.dto.HomeRequest;
+import com.pipiolo.home.service.EmailService;
 import com.pipiolo.home.service.HomeRequestService;
 import com.pipiolo.home.service.HomeService;
 import lombok.RequiredArgsConstructor;
@@ -32,7 +33,7 @@ public class HomeInsertJobConfig {
     private final JobBuilderFactory jobBuilderFactory;
     private final StepBuilderFactory stepBuilderFactory;
 
-    private final HomeApiResource homeApiResource;
+    private final HomeAPIResource homeAPIResource;
 
     @Bean
     public Job homeInsertJob(Step homeInsertStep) {
@@ -66,7 +67,7 @@ public class HomeInsertJobConfig {
     ) {
         return new StaxEventItemReaderBuilder<HomeDto>()
                 .name("homeItemReader")
-                .resource(homeApiResource.getResource(startMonth, endMonth))
+                .resource(homeAPIResource.getResource(startMonth, endMonth))
 //                .resource(new ClassPathResource(filePath))
                 .addFragmentRootElements("item")
                 .unmarshaller(jaxb2Marshaller)
@@ -108,10 +109,12 @@ public class HomeInsertJobConfig {
     @StepScope
     @Bean
     public ItemWriter<HomeRequest> homeItemWriter(
-            HomeService homeService
+            HomeService homeService,
+            EmailService emailService
     ) {
         return items -> {
             items.forEach(homeService::upsert);
+            items.forEach(emailService::send);
 //            items.forEach(System.out::println);
 //            System.out.println("============= Writing Completed =============");
         };

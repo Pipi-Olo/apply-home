@@ -10,7 +10,7 @@ import java.net.MalformedURLException;
 
 @Slf4j
 @Component
-public class HomeApiResource {
+public class HomeAPIResource {
 
     @Value("${external.home-api.path}")
     private String path;

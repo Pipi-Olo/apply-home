@@ -1,4 +1,4 @@
-package com.pipiolo.home.controller;
+package com.pipiolo.home.controller.view;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;

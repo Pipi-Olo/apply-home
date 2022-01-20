@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<form action="/api/user/" method="POST">
+  <fieldset>
+    <label for="email">Email : </label>
+    <input type="email" name="email" id="email" autofocus required>
+  </fieldset>
+  <fieldset>
+    <p><b>Select Subscribe</b></p>
+    <input type="radio" name="subscribed" id="subscribe" checked>
+    <label for="subscribe">Subscribe</label>
+
+    <input type="radio" name="subscribed" id="unsubscribe">
+    <label for="unsubscribe">UnSubscribe</label>
+  </fieldset>
+  <fieldset>
+    <p><b>Region</b></p>
+    <label><input type="checkbox" value="BUSAN">부산</label>
+  </fieldset>
+  <fieldset>
+    <input type="submit" value="Submit">
+  </fieldset>
+</form>
+</body>
+</html>

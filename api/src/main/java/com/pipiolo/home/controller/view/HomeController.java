@@ -1,4 +1,4 @@
-package com.pipiolo.home.controller;
+package com.pipiolo.home.controller.view;
 
 import com.pipiolo.home.dto.HomeResponse;
 import com.pipiolo.home.service.HomeService;
@@ -19,7 +19,7 @@ public class HomeController {
 
     private final HomeService homeService;
 
-    @GetMapping()
+    @GetMapping("/index")
     public ModelAndView homes() {
         Map<String, Object> map = new HashMap<>();
         List<HomeResponse> homeList = homeService.getHomes();
