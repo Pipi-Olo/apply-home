@@ -18,7 +18,7 @@ import static com.pipiolo.home.constant.HouseType.PRIVATE_HOUSE;
 import static com.pipiolo.home.constant.SubscriptionType.PARCEL;
 import static org.assertj.core.api.Assertions.assertThat;
 
-@DisplayName("[CORE] - Repository")
+@DisplayName("[CORE][Repository][Home]")
 @DataJpaTest
 class HomeRepositoryTest {
 
