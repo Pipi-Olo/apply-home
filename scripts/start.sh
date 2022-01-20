@@ -6,11 +6,10 @@ source "${ABSDIR}"/profile.sh
 
 REPOSITORY=/home/ec2-user/app/step3
 PROJECT_NAME=apply-home
-MODULE_NAME=api
 
 echo "> Build 파일 복사"
 
-cp $REPOSITORY/zip/$MODULE_NAME/build/libs/*.jar $REPOSITORY/
+cp $REPOSITORY/zip/*.jar $REPOSITORY/
 
 echo "> 새 어플리케이션 배포"
 JAR_NAME=$(ls -tr $REPOSITORY/*.jar | tail -n 1)
