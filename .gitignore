@@ -46,7 +46,7 @@ out/
 
 ### Properties ###
 application-dev.properties
-application-openapi.properties
+application.properties
 
 ## Querydsl ###
 generated
