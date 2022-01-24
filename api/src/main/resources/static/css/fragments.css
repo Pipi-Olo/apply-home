@@ -12,23 +12,16 @@ ul {
     list-style: none;
 }
 
-#fragment {
+/* 헤더 영역 */
+
+header {
     margin:0 auto;  /* 화면 중앙에 배치 */
-    width:80%;      /* 너비 */
-    background-color: #fff;
-}
-
-/*********************************/
-/* 헤더 영역 - 로고와 내비게이션 */
-/*********************************/
-
-header{
-    width:100%;     /*  너비 */
     height:100px;   /* 높이 */
     background-color:#045;
 }
 
 /* 로고 */
+
 #logo{
     float:left;         /* 왼쪽으로 플로팅 */
     height:100%;        /* 높이 */
@@ -44,18 +37,22 @@ header{
 }
 
 /* 내비게이션 */
+
 nav{
     float:right;       /* 오른쪽으로 플로팅 */
     height:100%;       /* 메뉴 영역 높이 */
     padding-top:40px;  /* 메뉴를 아래로 내리기 위해 */
 }
+
 #topMenu {
     height:60px;
 }
+
 #topMenu > li {
     float:left;  /* 메뉴 항목을 왼쪽으로 플로팅 */
     position: relative;
 }
+
 #topMenu > li > a{
     display:block;      /* 링크 텍스트는 블록으로 */
     font-size:1.1em;
@@ -63,39 +60,71 @@ nav{
     font-weight:600;    /* 글자 굵기 */
     padding:20px 60px;  /* 패딩 */
 }
+
 #topMenu > li > a:hover {
     color:#1fa8f8;
     text-shadow:0 -2px #222;
 }
 
-/******************/
-/*   푸터 영역    */
-/******************/
+/* 메인 영역 */
 
-/*footer{*/
-/*    width:100%;    !* 너비 *!*/
-/*    height:100px;  !* 높이 *!*/
-/*    border-top:2px solid #222;*/
-/*}*/
-/*#bottomMenu{*/
-/*    width:100%;*/
-/*    height:20px;*/
-/*    margin-left:60px;*/
-/*    margin-right:60px;*/
-/*}*/
-/*#bottomMenu ul {*/
-/*    float: right;*/
-/*    margin-top:15px;*/
-/*}*/
-/*#bottomMenu ul li{*/
-/*    float:left;                    !* 가로로 배치 *!*/
-/*    padding:5px 20px;*/
-/*    border-right:1px solid #ddd;   !* 항목 오른쪽에 테두리 *!*/
-/*}*/
-/*#bottomMenu ul li:last-child{*/
-/*    border:none;  !* 마지막 항목에는 오른쪽 테두리 없음 *!*/
-/*}*/
-/*#bottomMenu ul li a, #bottomMenu ul li a:visited {*/
-/*    font-size:15px;  !* 글자 크기 *!*/
-/*    color:#666;      !* 글자 색 *!*/
-/*}*/
+main {
+    margin:0 auto;  /* 화면 중앙에 배치 */
+    background-color:#ffffff;
+}
+
+main img {
+    width: 100px;
+    height: 100px;
+    border-radius:20px;
+    margin-top: 20px;
+}
+
+main h2 {
+    font-size:1.5em;
+    line-height: 2.5;
+}
+
+main div {
+    margin-top:5px;
+}
+
+.detail p {
+    line-height: 2.0;
+    color:#222;
+}
+
+/* 푸터 영역 */
+
+footer{
+    margin:0 auto;  /* 화면 중앙에 배치 */
+    height:100px;   /* 높이 */
+    background-color:#ffffff;
+}
+
+#bottomMenu{
+    border-top: 2px solid black;
+    width:100%;
+    height:20px;
+    margin-right:60px;
+}
+
+#bottomMenu ul {
+    float: right;
+    margin-top:15px;
+}
+
+#bottomMenu ul li{
+    float:left;                    /* 가로로 배치 */
+    padding:5px 20px;
+    border-right:1px solid #ddd;   /* 항목 오른쪽에 테두리 */
+}
+
+#bottomMenu ul li:last-child{
+    border:none;  /* 마지막 항목에는 오른쪽 테두리 없음 */
+}
+
+#bottomMenu ul li a, #bottomMenu ul li a:visited {
+    font-size:15px;  /* 글자 크기 */
+    color:#666;      /* 글자 색 */
+}

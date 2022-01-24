@@ -1,16 +1,16 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-  <link rel="stylesheet" href="css/index.css">
+  <link rel="stylesheet" href="/css/index.css">
   <head th:insert="fragments.html::head"></head>
 </head>
 <body>
-<header id="fragment-header">
-  <header th:insert="fragments.html::header"></header>
-</header>
 <div id="container">
-  <main class="contents">
-    <tr id="thymeleaf-content">
+  <header th:insert="fragments.html::header"></header>
+
+  <main>
+    <tr>
+      <img src="/images/home.png">
       <h2><td class="houseName">NULL</td></h2>
       <div class="detail">
         <p><b>건설회사 : <td class="constructionCompany">NULL</td></b></p>
