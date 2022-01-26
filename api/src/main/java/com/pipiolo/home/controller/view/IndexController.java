@@ -23,11 +23,11 @@ public class IndexController {
         List<HomeResponse> homeList = homeService.getHomes().subList(0, 2);
         map.put("homes", homeList);
 
-        return new ModelAndView("index", map);
+        return new ModelAndView("/index", map);
     }
 
     @GetMapping("/fragments")
     public String fragments() {
-        return "fragments";
+        return "/fragments";
     }
 }
