@@ -22,16 +22,16 @@
     </tr>
     </thead>
     <tbody>
-    <tr>
-      <td class="houseName">NULL</td>
-      <td class="constructionCompany">NULL</td>
-      <td class="region">NULL</td>
-      <td class="subscriptionType">NULL</td>
-      <td class="houseType">NULL</td>
-      <td class="recruitmentDay">NULL</td>
-      <td class="subscriptionStartDay">NULL</td>
-      <td class="subscriptionEndDay">NULL</td>
-      <td class="announcementDay">NULL</td>
+    <tr th:each="home : ${homes}">
+      <td><th:block th:text="${home.houseName}"></th:block></td>
+      <td><th:block th:text="${home.constructionCompany}"></th:block></td>
+      <td><th:block th:text="${home.region}"></th:block></td>
+      <td><th:block th:text="${home.subscriptionType}"></th:block></td>
+      <td><th:block th:text="${home.houseType}"></th:block></td>
+      <td><th:block th:text="${home.recruitmentDay}"></th:block></td>
+      <td><th:block th:text="${home.subscriptionStartDay}"></th:block></td>
+      <td><th:block th:text="${home.subscriptionEndDay}"></th:block></td>
+      <td><th:block th:text="${home.announcementDay}"></th:block></td>
     </tr>
     </tbody>
   </table>

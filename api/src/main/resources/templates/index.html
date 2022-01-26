@@ -9,20 +9,20 @@
   <header th:insert="fragments.html::header"></header>
 
   <main>
-    <tr>
+    <div th:each="home : ${homes}">
       <img src="/images/home.png">
-      <h2><td class="houseName">NULL</td></h2>
+      <h2 th:text="${home.houseName}"></h2>
       <div class="detail">
-        <p><b>건설회사 : <td class="constructionCompany">NULL</td></b></p>
-        <p><b>지역 : <td class="region">NULL</td></b></p>
-        <p><b>분양 / 임대 : <td class="subscriptionType">NULL</td></b></p>
-        <p><b>국민 / 민영 : <td class="houseType">NULL</td></b></p>
-        <p><b>모집 공고일 : <td class="recruitmentDay">NULL</td></b></p>
-        <p><b>청약 접수 시작일 : <td class="subscriptionStartDay">NULL</td></b></p>
-        <p><b>청약 접수 종료일 : <td class="subscriptionEndDay">NULL</td></b></p>
-        <p><b>당첨자 발표일 : <td class="announcementDay">NULL</td></b></p>
+        <p><b>건설회사 : <th:block th:text="${home.constructionCompany}"></th:block></b></p>
+        <p><b>지역 : <th:block th:text="${home.region}"></th:block></b></p>
+        <p><b>분양 / 임대 : <th:block th:text="${home.subscriptionType}"></th:block></b></p>
+        <p><b>국민 / 민영 : <th:block th:text="${home.houseType}"></th:block></b></p>
+        <p><b>모집 공고일 : <th:block th:text="${home.recruitmentDay}"></th:block></b></p>
+        <p><b>청약 접수 시작일 : <th:block th:text="${home.subscriptionStartDay}"></th:block></b></p>
+        <p><b>청약 접수 종료일 : <th:block th:text="${home.subscriptionEndDay}"></th:block></b></p>
+        <p><b>당첨자 발표일 : <th:block th:text="${home.announcementDay}"></th:block></b></p>
       </div>
-    </tr>
+    </div>
   </main>
 </div>
 </body>
