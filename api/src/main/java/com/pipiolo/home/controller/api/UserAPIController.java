@@ -10,16 +10,17 @@ import org.springframework.web.bind.annotation.*;
 import javax.validation.Valid;
 import java.util.List;
 
+@Deprecated
 @RequiredArgsConstructor
 @RequestMapping("/api/user")
-@RestController
+//@RestController
 public class UserAPIController {
 
     private final UserService userService;
 
     @PostMapping
-    public void upsert(UserRequest request) {
-        userService.upsert(request);
+    public void insert(UserRequest request) {
+        userService.insert(request);
     }
 
     @GetMapping
