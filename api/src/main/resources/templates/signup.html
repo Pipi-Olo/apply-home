@@ -32,6 +32,13 @@
         <label><input type="checkbox" value="부산"> 부산</label><br>
         <label><input type="checkbox" value="경기"> 경기</label>
       </p>
+      <p>
+        <label for="admin">Admin</label>
+        <input type="radio" id="admin" th:name="role" th:value="ROLE_ADMIN">
+
+        <label for="user">User</label>
+        <input type="radio" id="user" th:name="role" th:value="ROLE_USER" checked="checked">
+      </p>
       <button type="submit">회원가입</button>
     </form>
   </main>
