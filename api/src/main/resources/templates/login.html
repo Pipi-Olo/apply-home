@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="ko" xmlns:th="http://www.thymeleaf.org">
 <head>
-  <link rel="stylesheet" href="/css/user/login.css">
+  <link rel="stylesheet" href="/css/login.css">
   <head th:insert="fragments::head"></head>
 </head>
 <body>
@@ -17,7 +17,7 @@
       </p>
       <p>
         <label for="password">Password : </label>
-        <input type="password" id="password" th:name="password" placeholder="Password" required autofocus>
+        <input type="password" id="password" th:name="password" placeholder="Password" required autofocus><br>
       </p>
       <button type="submit">Login</button>
     </form>

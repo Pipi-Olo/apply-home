@@ -3,3 +3,7 @@
     width:80%;    /* 너비 */
     background-color: #fff;
 }
+
+main form p {
+    margin: 10px auto;
+}
