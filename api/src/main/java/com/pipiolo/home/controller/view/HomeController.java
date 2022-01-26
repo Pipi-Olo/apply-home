@@ -25,6 +25,6 @@ public class HomeController {
         List<HomeResponse> homeList = homeService.getHomes();
         map.put("homes", homeList);
 
-        return new ModelAndView("/home/index", map);
+        return new ModelAndView("home/index", map);
     }
 }
