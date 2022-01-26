@@ -17,7 +17,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import static com.pipiolo.home.constant.ErrorCode.BAD_REQUEST;
-import static com.pipiolo.home.constant.Role.ROLE_USER;
 
 @RequiredArgsConstructor
 @Service
@@ -35,7 +34,7 @@ public class LoginService implements UserDetailsService {
         return userRepository.save(User.builder()
                 .email(request.email())
                 .password(passwordEncoder.encode(request.password()))
-                .role(ROLE_USER)
+                .role(request.role())
                 .subscribed(request.subscribed())
                 .regions(request.regions())
                 .build());
