@@ -1,0 +1,5 @@
+#container {
+    margin:0 auto;  /* 화면 중앙에 배치 */
+    width:80%;    /* 너비 */
+    background-color: #fff;
+}

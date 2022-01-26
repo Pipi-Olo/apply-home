@@ -1,19 +1,35 @@
 <!DOCTYPE html>
-<html lang="ko" xmlns:th="http://www.thymeleaf.org">
-<!-- fragment head 정의 -->
+<html lang="ko"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 <head th:fragment="head">
   <meta charset="UTF-8">
   <title>Apply Home</title>
   <link rel="stylesheet" href="/css/fragments.css">
+  <link rel="icon" href="/images/home.png">
 </head>
 <body>
 <header th:fragment="header">
-  <div id="logo"><h1>Apply Home</h1></div>
+  <div id="logo">
+    <h1><a th:href="@{/}">Apply Home</a></h1>
+  </div>
   <nav>
     <ul id="topMenu">
-      <li><a href="home/index">청약 조회</a></li>
-      <li><a href="#">청양 자격 확인</a></li>
-      <li><a href="user/signup">청약 알리미</a></li>
+      <li>
+        <a th:href="@{/home/index}">청약 조회</a>
+      </li>
+      <li>
+        <a sec:authorize="hasRole('ROLE_ADMIN')" th:href="@{/admin}">관리자</a>
+      </li>
+      <li>
+        <a sec:authorize="!isAuthenticated()" th:href="@{/signup}">회원가입</a>
+      </li>
+      <li>
+        <a sec:authorize="!isAuthenticated()" th:href="@{/login}" >로그인</a>
+      </li>
+      <li>
+        <a sec:authorize="isAuthenticated()" th:href="@{/logout}">로그아웃</a>
+      </li>
     </ul>
   </nav>
 </header>
@@ -31,9 +47,9 @@
 <footer th:fragment="footer">
   <section id="bottomMenu">
     <ul>
-      <li><a href="#">TEST 1</a></li>
-      <li><a href="#">TEST 2</a></li>
-      <li><a href="#">TEST 3</a></li>
+      <li><a href="/#">TEST 1</a></li>
+      <li><a href="/#">TEST 2</a></li>
+      <li><a href="/#">TEST 3</a></li>
     </ul>
   </section>
 </footer>
