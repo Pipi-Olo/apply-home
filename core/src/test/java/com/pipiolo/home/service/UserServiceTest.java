@@ -18,7 +18,7 @@ class UserServiceTest {
 
     @Test
     void test() {
-        UserRequest request = new UserRequest("test@test.com", Boolean.TRUE, null);
+        UserRequest request = new UserRequest("test@test.com", "password", Boolean.TRUE, null);
         UserResponse response = userService.upsert(request);
 
         Assertions.assertThat(response.email())

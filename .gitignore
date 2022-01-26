@@ -45,7 +45,6 @@ out/
 .LSOverride
 
 ### Properties ###
-application-dev.properties
 application.properties
 
 ## Querydsl ###

@@ -29,6 +29,13 @@ public class HomeService {
         return HomeResponse.from(homeRepository.save(home));
     }
 
+    @Transactional
+    public void insert(HomeRequest request) {
+        if(homeRepository.findByNoticeId(request.noticeId()).isEmpty()) {
+            HomeResponse.from(homeRepository.save(request.toEntity()));
+        }
+    }
+
     @Transactional(readOnly = true)
     public List<HomeResponse> getHomes() {
         return homeRepository.findAll()

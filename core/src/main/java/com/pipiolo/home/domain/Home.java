@@ -6,7 +6,6 @@ import com.pipiolo.home.dto.HomeRequest;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-import lombok.Setter;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -15,7 +14,6 @@ import javax.persistence.Enumerated;
 import java.time.LocalDate;
 
 @Getter
-@Setter
 @NoArgsConstructor
 @Entity
 public class Home extends BaseEntity {

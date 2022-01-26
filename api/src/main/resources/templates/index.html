@@ -1,19 +1,31 @@
 <!DOCTYPE html>
-<html lang="ko">
+<html lang="ko"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 <head>
-  <meta charset="UTF-8">
-  <title>applyHome</title>
+  <link rel="stylesheet" href="/css/index.css">
+  <head th:insert="fragments.html::head"></head>
 </head>
 <body>
-<h1>This is apply-home site Ver.2</h1>
-  <p>
-    <a href="home/index">See All Home Page.</a>
-  </p>
-<!--  <p>-->
-<!--    <a href="home/search">See Search Home Page.</a>-->
-<!--  </p>-->
-  <p>
-    <a href="user/index">User Page.</a>
-  </p>
+<div id="container">
+  <header th:insert="fragments.html::header"></header>
+
+  <main>
+    <tr>
+      <img src="/images/home.png">
+      <h2><td class="houseName">NULL</td></h2>
+      <div class="detail">
+        <p><b>건설회사 : <td class="constructionCompany">NULL</td></b></p>
+        <p><b>지역 : <td class="region">NULL</td></b></p>
+        <p><b>분양 / 임대 : <td class="subscriptionType">NULL</td></b></p>
+        <p><b>국민 / 민영 : <td class="houseType">NULL</td></b></p>
+        <p><b>모집 공고일 : <td class="recruitmentDay">NULL</td></b></p>
+        <p><b>청약 접수 시작일 : <td class="subscriptionStartDay">NULL</td></b></p>
+        <p><b>청약 접수 종료일 : <td class="subscriptionEndDay">NULL</td></b></p>
+        <p><b>당첨자 발표일 : <td class="announcementDay">NULL</td></b></p>
+      </div>
+    </tr>
+  </main>
+</div>
 </body>
 </html>

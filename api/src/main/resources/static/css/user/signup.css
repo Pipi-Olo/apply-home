@@ -1,0 +1,16 @@
+#container {
+    margin:0 auto;  /* 화면 중앙에 배치 */
+    width:80%;    /* 너비 */
+    background-color: #fff;
+}
+
+/* 메인 영역 */
+
+main {
+    margin:0 auto;  /* 화면 중앙에 배치 */
+    background-color:#ffffff;
+}
+
+main form p {
+    margin-bottom: 20px;
+}

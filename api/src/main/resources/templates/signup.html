@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <link rel="stylesheet" href="/css/user/signup.css">
+  <head th:insert="fragments::head"></head>
+</head>
+<body>
+<div id="container">
+  <header th:insert="fragments.html::header"></header>
+
+  <main>
+    <form method="post" th:action="@{/signup}">
+      <h2>회원가입</h2>
+      <p>
+        <h3><label for="email">이메일</label></h3>
+        <input type="email" id="email" th:name="email" required autofocus>
+      </p>
+      <p>
+        <h3><label for="password">비밀번호</label></h3>
+        <input type="text" id="password" th:name="password" required autofocus>
+      </p>
+      <p>
+        <h3>이메일 구독</h3>
+        <label for="subscribe">예</label>
+        <input type="radio" id="subscribe" th:name="subscribed" checked><br>
+
+        <label for="unsubscribe">아니오</label>
+        <input type="radio" id="unsubscribe" th:name="subscribed">
+      </p>
+      <p>
+        <h3>지역</h3>
+        <label><input type="checkbox" value="부산"> 부산</label><br>
+        <label><input type="checkbox" value="경기"> 경기</label>
+      </p>
+      <button type="submit">회원가입</button>
+    </form>
+  </main>
+</div>
+</body>
+</html>
