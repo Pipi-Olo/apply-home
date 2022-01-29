@@ -1,40 +1,113 @@
 <!DOCTYPE html>
 <html lang="ko" xmlns:th="http://www.thymeleaf.org">
 <head>
-  <link rel="stylesheet" href="/css/home/index.css">
+  <link rel="stylesheet" href="../../static/css/reset.css">
+  <link rel="stylesheet" href="../../static/css/home/index.css">
   <head th:insert="fragments.html::head"></head>
 </head>
 <body>
-<div id="container">
-  <header th:insert="fragments.html::header"></header>
-  <table id="homeTable">
-    <thead>
-    <tr>
-      <th>주택명</th>
-      <th>건축 업체</th>
-      <th>공급 지역</th>
-      <th>분양 / 임대</th>
-      <th>국민주택 / 민영주택</th>
-      <th>모집 공고일</th>
-      <th>청약 접수 시작일</th>
-      <th>청약 접수 종료일</th>
-      <th>당첨자 발표일</th>
-    </tr>
-    </thead>
-    <tbody>
-    <tr th:each="home : ${homes}">
-      <td><th:block th:text="${home.houseName}"></th:block></td>
-      <td><th:block th:text="${home.constructionCompany}"></th:block></td>
-      <td><th:block th:text="${home.region}"></th:block></td>
-      <td><th:block th:text="${home.subscriptionType}"></th:block></td>
-      <td><th:block th:text="${home.houseType}"></th:block></td>
-      <td><th:block th:text="${home.recruitmentDay}"></th:block></td>
-      <td><th:block th:text="${home.subscriptionStartDay}"></th:block></td>
-      <td><th:block th:text="${home.subscriptionEndDay}"></th:block></td>
-      <td><th:block th:text="${home.announcementDay}"></th:block></td>
-    </tr>
-    </tbody>
-  </table>
-</div>
+  <script>
+  </script>
+  <div id="container">
+    <header th:insert="fragments.html::header"></header>
+    <table id="homeTable">
+      <thead>
+      <tr>
+        <th>주택명</th>
+        <th>건축 업체</th>
+        <th>공급 지역</th>
+        <th>분양 / 임대</th>
+        <th>국민주택 / 민영주택</th>
+        <th>모집 공고일</th>
+        <th>청약 접수 시작일</th>
+        <th>청약 접수 종료일</th>
+        <th>당첨자 발표일</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr th:each="home : ${homes}">
+        <td><th:block th:text="${home.houseName}"></th:block></td>
+        <td><th:block th:text="${home.constructionCompany}"></th:block></td>
+        <td><th:block th:text="${home.region}"></th:block></td>
+        <td><th:block th:text="${home.subscriptionType}"></th:block></td>
+        <td><th:block th:text="${home.houseType}"></th:block></td>
+        <td><th:block th:text="${home.recruitmentDay}"></th:block></td>
+        <td><th:block th:text="${home.subscriptionStartDay}"></th:block></td>
+        <td><th:block th:text="${home.subscriptionEndDay}"></th:block></td>
+        <td><th:block th:text="${home.announcementDay}"></th:block></td>
+      </tr>
+      </tbody>
+    </table>
+    <div class="line"></div>
+    <div class="search-bar">
+      <div class="top">
+        <div class="checkbox-container">
+          <div class="checkbox">
+            <input type="checkbox" id="checkbox-a" />
+            <label for="checkbox-a">가나다라</label>
+          </div>
+          <div class="checkbox">
+            <input type="checkbox" id="checkbox-b" />
+            <label for="checkbox-b">가나다라</label>
+          </div>
+          <div class="checkbox">
+            <input type="checkbox" id="checkbox-c" />
+            <label for="checkbox-c">가나다라</label>
+          </div>
+          <div class="checkbox">
+            <input type="checkbox" id="checkbox-d" />
+            <label for="checkbox-d">가나다라</label>
+          </div>
+          <div class="checkbox">
+            <input type="checkbox" id="checkbox-e" />
+            <label for="checkbox-e">가나다라</label>
+          </div>
+        </div>
+        <div class="checkbox-container">
+          <div class="checkbox">
+            <input type="checkbox" id="checkbox-f" />
+            <label for="checkbox-f">가나다라</label>
+          </div>
+          <div class="checkbox">
+            <input type="checkbox" id="checkbox-g" />
+            <label for="checkbox-g">가나다라</label>
+          </div>
+          <div class="checkbox">
+            <input type="checkbox" id="checkbox-h" />
+            <label for="checkbox-h">가나다라</label>
+          </div>
+          <div class="checkbox">
+            <input type="checkbox" id="checkbox-i" />
+            <label for="checkbox-i">가나다라</label>
+          </div>
+          <div class="checkbox">
+            <input type="checkbox" id="checkbox-j" />
+            <label for="checkbox-j">가나다라</label>
+          </div>
+        </div>
+        
+      </div>
+      <div class="bottom">
+        주택 종류
+        <select class="select-1">
+          <option>옵션1</option>
+          <option>옵션2</option>
+          <option>옵션3</option>
+        </select>
+        지역
+        <select class="select-2">
+          <option>옵션1</option>
+          <option>옵션2</option>
+          <option>옵션3</option>
+        </select>
+        검색어
+        <input type="text" class="keyword" placeholder="검색어를 입력하세요." />
+        <input type="button" class="submit" value="검색" />
+      </div>
+    </div>
+  </div>
 </body>
+<script>
+  
+</script>
 </html>
