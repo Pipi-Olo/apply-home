@@ -48,13 +48,17 @@ public class User extends BaseEntity implements UserDetails {
         this.password = password;
         this.role = role;
         this.subscribed = subscribed;
-//        this.regions.addAll(regions);
+        if (!regions.isEmpty()) {
+            this.regions.addAll(regions);
+        }
     }
 
     public void update(UserRequest request) {
         this.email = request.email();
         this.subscribed = request.subscribed();
-//        this.regions.addAll(request.regions());
+        if (!regions.isEmpty()) {
+            this.regions.addAll(regions);
+        }
     }
 
     public void addRegion(String region) {

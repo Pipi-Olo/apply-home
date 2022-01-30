@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="ko" xmlns:th="http://www.thymeleaf.org">
 <head>
-  <link rel="stylesheet" href="/css/user/signup.css">
+  <link rel="stylesheet" href="/css/signup.css">
   <head th:insert="fragments::head"></head>
 </head>
 <body>
@@ -29,8 +29,53 @@
       </p>
       <p>
         <h3>지역</h3>
-        <label><input type="checkbox" value="부산"> 부산</label><br>
-        <label><input type="checkbox" value="경기"> 경기</label>
+        <label for="Seoul">서울</label>
+        <input th:type="checkbox" id="Seoul" th:name="regions" th:value="서울"><br>
+
+        <label for="Busan">부산</label>
+        <input th:type="checkbox" id="Busan" th:name="regions" th:value="부산"><br>
+
+        <label for="Daegu">대구</label>
+        <input th:type="checkbox" id="Daegu" th:name="regions" th:value="대구"><br>
+
+        <label for="Gwanju">광주</label>
+        <input th:type="checkbox" id="Gwanju" th:name="regions" th:value="광주"><br>
+
+        <label for="Incheon">인천</label>
+        <input th:type="checkbox" id="Incheon" th:name="regions" th:value="인천"><br>
+
+        <label for="Daejeon">대전</label>
+        <input th:type="checkbox" id="Daejeon" th:name="regions" th:value="대전"><br>
+
+        <label for="Ulsan">울산</label>
+        <input th:type="checkbox" id="Ulsan" th:name="regions" th:value="울산"><br>
+
+        <label for="Gyeonggi">경기</label>
+        <input th:type="checkbox" id="Gyeonggi" th:name="regions" th:value="경기"><br>
+
+        <label for="Gangwon">강원</label>
+        <input th:type="checkbox" id="Gangwon" th:name="regions" th:value="강원"><br>
+
+        <label for="Chungcheongbuk">충북</label>
+        <input th:type="checkbox" id="Chungcheongbuk" th:name="regions" th:value="충북"><br>
+
+        <label for="Chungcheongnam">충남</label>
+        <input th:type="checkbox" id="Chungcheongnam" th:name="regions" th:value="충남"><br>
+
+        <label for="Jeollabuk">전북</label>
+        <input th:type="checkbox" id="Jeollabuk" th:name="regions" th:value="전북"><br>
+
+        <label for="Jeollanam">전남</label>
+        <input th:type="checkbox" id="Jeollanam" th:name="regions" th:value="전남"><br>
+
+        <label for="Gyeongsangbuk">경북</label>
+        <input th:type="checkbox" id="Gyeongsangbuk" th:name="regions" th:value="경북"><br>
+
+        <label for="Gyeongsangnam">경남</label>
+        <input th:type="checkbox" id="Gyeongsangnam" th:name="regions" th:value="경남"><br>
+
+        <label for="Jeju">제주</label>
+        <input th:type="checkbox" id="Jeju" th:name="regions" th:value="제주">
       </p>
       <p>
         <label for="admin">Admin</label>
