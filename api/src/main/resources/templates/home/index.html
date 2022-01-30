@@ -7,6 +7,58 @@
 <body>
 <div id="container">
   <header th:insert="fragments.html::header"></header>
+
+  <div class="line"></div>
+
+  <form th:action="@{/api/home}" method="get">
+    <p>
+      <h3>분양 / 임대 :
+        <select th:name="subscriptionType">
+          <option value="">분양 / 임대</option>
+          <option value="PARCEL">분양</option>
+          <option value="RENT">임대</option>
+        </select>
+      </h3>
+    </p>
+    <p>
+      <h3>국민 / 민영 :
+        <select th:name="houseType">
+          <option value="">국민 / 민영</option>
+          <option value="NATIONAL_HOUSE">국민</option>
+          <option value="PRIVATE_HOUSE">민영</option>
+        </select>
+      </h3>
+    </p>
+    <p>
+      <h3>지역 :
+        <select th:name="region">
+          <option value="">지역</option>
+          <option value="서울">서울</option>
+          <option value="부산">부산</option>
+          <option value="대구">대구</option>
+          <option value="광주">광주</option>
+          <option value="인천">인천</option>
+          <option value="대전">대전</option>
+          <option value="울산">울산</option>
+          <option value="경기">경기</option>
+          <option value="강원">강원</option>
+          <option value="충북">충북</option>
+          <option value="충남">충남</option>
+          <option value="전북">전북</option>
+          <option value="전남">전남</option>
+          <option value="경북">경북</option>
+          <option value="경남">경남</option>
+          <option value="제주">제주</option>
+        </select>
+      </h3>
+    </p>
+    <p>
+      <input type="submit" value="검색">
+    </p>
+  </form>
+
+  <div class="line"></div>
+
   <table id="homeTable">
     <thead>
     <tr>
@@ -26,8 +78,8 @@
       <td><th:block th:text="${home.houseName}"></th:block></td>
       <td><th:block th:text="${home.constructionCompany}"></th:block></td>
       <td><th:block th:text="${home.region}"></th:block></td>
-      <td><th:block th:text="${home.subscriptionType}"></th:block></td>
-      <td><th:block th:text="${home.houseType}"></th:block></td>
+      <td><th:block th:text="${home.subscriptionType.type}"></th:block></td>
+      <td><th:block th:text="${home.houseType.type}"></th:block></td>
       <td><th:block th:text="${home.recruitmentDay}"></th:block></td>
       <td><th:block th:text="${home.subscriptionStartDay}"></th:block></td>
       <td><th:block th:text="${home.subscriptionEndDay}"></th:block></td>

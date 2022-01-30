@@ -10,3 +10,9 @@ main {
     margin:20px auto;  /* 화면 중앙에 배치 */
     background-color:#ffffff;
 }
+
+.line {
+    margin: 10px 0;
+    height: 1px;
+    background-color: black;
+}
