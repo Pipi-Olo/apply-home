@@ -2,12 +2,31 @@ package com.pipiolo.home.controller;
 
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.boot.test.web.client.TestRestTemplate;
+import org.springframework.boot.web.server.LocalServerPort;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.mock.env.MockEnvironment;
+import org.springframework.test.context.junit.jupiter.SpringExtension;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
 @DisplayName("[API][Controller][Profile]")
+@ExtendWith(SpringExtension.class)
+@SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 class ProfileControllerTest {
+
+    @LocalServerPort
+    private int port;
+
+    private final TestRestTemplate restTemplate;
+
+    ProfileControllerTest(@Autowired TestRestTemplate restTemplate) {
+        this.restTemplate = restTemplate;
+    }
 
     @DisplayName("[NGINX]")
     @Test
@@ -62,5 +81,19 @@ class ProfileControllerTest {
 
         // Then
         assertThat(profile).isEqualTo(expectedProfile);
+    }
+
+    @DisplayName("[NGINX] 인증 없이도 /profile 을 호출할 수 있다. ")
+    @Test
+    void givenNothing_whenRequestProfileWithNoAuthenticated_thenReturnsDefault() {
+        // Given
+        String expected = "default";
+
+        // When
+        ResponseEntity<String> response = restTemplate.getForEntity("/profile", String.class);
+
+        // Then
+        assertThat(response.getStatusCode()).isEqualTo(HttpStatus.OK);
+        assertThat(response.getBody()).isEqualTo(expected);
     }
 }
