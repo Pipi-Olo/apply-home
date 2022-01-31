@@ -12,7 +12,7 @@ import java.util.List;
 
 @Deprecated
 @RequiredArgsConstructor
-@RequestMapping("/api/user")
+//@RequestMapping("/api/user")
 //@RestController
 public class UserAPIController {
 

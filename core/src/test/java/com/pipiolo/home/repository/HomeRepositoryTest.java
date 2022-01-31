@@ -58,7 +58,7 @@ class HomeRepositoryTest {
 
     @DisplayName("[Querydsl] 검색 파라미터 중 일부가 없어도, 조건에 맞는 데이터를 페이징 처리하여 반환한다.")
     @Test
-    void test() {
+    void givenNullParam_whenSearching_thenReturnsHomePage() {
         // Given
         String region = "경남";
         SubscriptionType subscriptionType = PARCEL;
