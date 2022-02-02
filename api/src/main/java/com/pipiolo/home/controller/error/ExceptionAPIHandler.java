@@ -15,7 +15,7 @@ import static com.pipiolo.home.constant.ErrorCode.VALIDATION_ERROR;
 import static com.pipiolo.home.exception.ExceptionMapper.mapTo;
 
 @RestControllerAdvice(annotations = {RestController.class})
-public class APIExceptionHandler {
+public class ExceptionAPIHandler {
 
     @ExceptionHandler(GeneralException.class)
     public ResponseEntity<ErrorResponse> general(GeneralException ex) {
