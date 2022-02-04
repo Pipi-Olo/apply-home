@@ -37,8 +37,8 @@ public class HomeService {
     }
 
     @Transactional(readOnly = true)
-    public List<HomeResponse> getHomes() {
-        return homeRepository.findAll()
+    public List<HomeResponse> getHomes(Pageable pageable) {
+        return homeRepository.findAll(pageable)
                 .stream().map(HomeResponse::from).toList();
     }
 
