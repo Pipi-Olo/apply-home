@@ -15,12 +15,12 @@ import org.springframework.data.jpa.repository.support.QuerydslRepositorySupport
 import java.util.List;
 import java.util.Optional;
 
-public class HomeRepositoryCustomImpl
+public class HomeRepositoryImpl
         extends QuerydslRepositorySupport
         implements HomeRepositoryCustom
 {
 
-    public HomeRepositoryCustomImpl() {
+    public HomeRepositoryImpl() {
         super(Home.class);
     }
 
