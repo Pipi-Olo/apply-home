@@ -301,9 +301,27 @@
             <form method="get" th:action="@{/}"
                 class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
               <div class="input-group">
-                <input th:name="houseName"
-                    type="text" class="form-control bg-white border-0 small" placeholder="Search for..."
-                    aria-label="Search" aria-describedby="basic-addon2">
+                <label style="margin-right: 1rem">
+                  <select th:name="subscriptionType"
+                          name="dataTable_length" aria-controls="dataTable" class="custom-select custom-select-sm form-control form-control-sm">
+                    <option value="">분양 / 임대</option>
+                    <option value="PARCEL">분양</option>
+                    <option value="RENT">임대</option>
+                  </select>
+                </label>
+                <label style="margin-right: 1rem">
+                  <select th:name="houseType"
+                          name="dataTable_length" aria-controls="dataTable" class="custom-select custom-select-sm form-control form-control-sm">
+                    <option value="">국민 / 민영</option>
+                    <option value="NATIONAL_HOUSE">국민</option>
+                    <option value="PRIVATE_HOUSE">민영</option>
+                  </select>
+                </label>
+                <label>주택명 :
+                  <input th:name="houseName"
+                         type="search" class="form-control bg-white small" placeholder="Search for..."
+                         aria-label="Search" aria-describedby="basic-addon2">
+                </label>
                 <div class="input-group-append">
                   <button class="btn btn-primary" type="button">
                     <i class="fas fa-search fa-sm"></i>
@@ -345,7 +363,6 @@
             </div>
           </div>
         </div>
-
       </div>
       <!-- /.container-fluid -->
 
