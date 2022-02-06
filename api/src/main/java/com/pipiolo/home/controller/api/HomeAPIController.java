@@ -9,7 +9,6 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
 
 import javax.validation.Valid;
 import java.util.List;
@@ -17,7 +16,8 @@ import java.util.List;
 @Slf4j
 @RequiredArgsConstructor
 @RequestMapping("/api")
-@RestController
+//@RestController
+@Deprecated
 public class HomeAPIController {
 
     private final HomeService homeService;
@@ -28,6 +28,7 @@ public class HomeAPIController {
             Pageable pageable
     ) {
         return homeService.findHomeBySearchParams(
+                request.houseName(),
                 request.region(),
                 request.subscriptionType(),
                 request.houseType(),
