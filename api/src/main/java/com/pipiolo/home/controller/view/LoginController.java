@@ -13,7 +13,7 @@ import javax.servlet.http.HttpServletResponse;
 
 @RequiredArgsConstructor
 @Controller
-public class UserController {
+public class LoginController {
 
     private final LoginService loginService;
 
