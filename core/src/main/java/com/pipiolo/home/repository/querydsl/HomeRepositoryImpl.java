@@ -26,6 +26,7 @@ public class HomeRepositoryImpl
 
     @Override
     public Page<HomeResponse> findHomeBySearchParams(
+            String houseName,
             String region,
             SubscriptionType subscriptionType,
             HouseType houseType,
@@ -48,6 +49,9 @@ public class HomeRepositoryImpl
                         home.announcementDay
                 ));
 
+        if (houseName != null && !houseName.isBlank()) {
+            query.where(home.houseName.containsIgnoreCase(houseName));
+        }
         if (region != null && !region.isBlank()) {
             query.where(home.region.eq(region));
         }

@@ -44,12 +44,14 @@ public class HomeService {
 
     @Transactional(readOnly = true)
     public Page<HomeResponse> findHomeBySearchParams(
+            String houseName,
             String region,
             SubscriptionType subscriptionType,
             HouseType houseType,
             Pageable pageable
     ) {
         return homeRepository.findHomeBySearchParams(
+                houseName,
                 region,
                 subscriptionType,
                 houseType,
