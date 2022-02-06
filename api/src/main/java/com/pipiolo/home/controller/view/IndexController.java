@@ -1,14 +1,18 @@
 package com.pipiolo.home.controller.view;
 
 import com.pipiolo.home.dto.HomeResponse;
+import com.pipiolo.home.dto.HomeSearchRequest;
 import com.pipiolo.home.service.HomeService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.servlet.ModelAndView;
 
+import javax.validation.Valid;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 @RequiredArgsConstructor
@@ -17,12 +21,21 @@ public class IndexController {
 
     private final HomeService homeService;
 
-    @GetMapping("/")
-    public ModelAndView index() {
+    @GetMapping( value = {"/", "/index"})
+    public ModelAndView index(
+            @Valid @ModelAttribute HomeSearchRequest request,
+            Pageable pageable
+    ) {
         Map<String, Object> map = new HashMap<>();
-        List<HomeResponse> homeList = homeService.getHomes().subList(0, 2);
+        Page<HomeResponse> homeList = homeService.findHomeBySearchParams(
+                request.houseName(),
+                request.region(),
+                request.subscriptionType(),
+                request.houseType(),
+                pageable
+        );
+        
         map.put("homes", homeList);
-
         return new ModelAndView("index", map);
     }
 }

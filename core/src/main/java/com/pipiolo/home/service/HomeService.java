@@ -37,19 +37,21 @@ public class HomeService {
     }
 
     @Transactional(readOnly = true)
-    public List<HomeResponse> getHomes() {
-        return homeRepository.findAll()
+    public List<HomeResponse> getHomes(Pageable pageable) {
+        return homeRepository.findAll(pageable)
                 .stream().map(HomeResponse::from).toList();
     }
 
     @Transactional(readOnly = true)
     public Page<HomeResponse> findHomeBySearchParams(
+            String houseName,
             String region,
             SubscriptionType subscriptionType,
             HouseType houseType,
             Pageable pageable
     ) {
         return homeRepository.findHomeBySearchParams(
+                houseName,
                 region,
                 subscriptionType,
                 houseType,

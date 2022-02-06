@@ -37,12 +37,14 @@ class HomeRepositoryTest {
     @Test
     void givenSearchParams_whenSearching_thenReturnsHomePage() {
         // Given
+        String houseName = "가포금호어울림 10년공공임대주택(리츠)";
         String region = "경남";
         SubscriptionType subscriptionType = PARCEL;
         HouseType houseType = PRIVATE_HOUSE;
 
         // When
         Page<HomeResponse> actual = homeRepository.findHomeBySearchParams(
+                houseName,
                 region,
                 subscriptionType,
                 houseType,
@@ -51,6 +53,7 @@ class HomeRepositoryTest {
         // Then
         assertThat(actual.getTotalPages()).isEqualTo(1);
         assertThat(actual.getContent().get(0))
+                .hasFieldOrPropertyWithValue("houseName", houseName)
                 .hasFieldOrPropertyWithValue("region", region)
                 .hasFieldOrPropertyWithValue("subscriptionType", subscriptionType)
                 .hasFieldOrPropertyWithValue("houseType", houseType);
@@ -65,6 +68,7 @@ class HomeRepositoryTest {
 
         // When
         Page<HomeResponse> actual = homeRepository.findHomeBySearchParams(
+                null,
                 region,
                 subscriptionType,
                 null,
@@ -84,6 +88,7 @@ class HomeRepositoryTest {
 
         // When
         Page<HomeResponse> actual = homeRepository.findHomeBySearchParams(
+                null,
                 null,
                 null,
                 null,

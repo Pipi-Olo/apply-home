@@ -9,6 +9,7 @@ import org.springframework.data.domain.Pageable;
 public interface HomeRepositoryCustom {
 
     Page<HomeResponse> findHomeBySearchParams(
+            String houseName,
             String region,
             SubscriptionType subscriptionType,
             HouseType houseType,
