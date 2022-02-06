@@ -37,7 +37,7 @@ class HomeRepositoryTest {
     @Test
     void givenSearchParams_whenSearching_thenReturnsHomePage() {
         // Given
-        String houseName = "가포금호어울림";
+        String houseName = "가포금호어울림 10년공공임대주택(리츠)";
         String region = "경남";
         SubscriptionType subscriptionType = PARCEL;
         HouseType houseType = PRIVATE_HOUSE;
