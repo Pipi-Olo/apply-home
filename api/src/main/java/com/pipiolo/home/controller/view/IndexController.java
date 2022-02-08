@@ -6,6 +6,7 @@ import com.pipiolo.home.service.HomeService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
+import org.springframework.data.web.PageableDefault;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -24,7 +25,7 @@ public class IndexController {
     @GetMapping( value = {"/", "/index"})
     public ModelAndView index(
             @Valid @ModelAttribute HomeSearchRequest request,
-            Pageable pageable
+            @PageableDefault(size = 10) Pageable pageable
     ) {
         Map<String, Object> map = new HashMap<>();
         Page<HomeResponse> homeList = homeService.findHomeBySearchParams(
