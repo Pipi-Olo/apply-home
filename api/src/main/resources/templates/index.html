@@ -279,13 +279,35 @@
                     <option value="PRIVATE_HOUSE">민영</option>
                   </select>
                 </label>
+                <label style="margin-right: 1rem">
+                  <select th:name="region"
+                          name="dataTable_length" aria-controls="dataTable" class="custom-select custom-select-sm form-control form-control-sm">
+                    <option value="">공급 지역</option>
+                    <option value="서울">서울</option>
+                    <option value="부산">부산</option>
+                    <option value="대구">대구</option>
+                    <option value="광주">광주</option>
+                    <option value="인천">인천</option>
+                    <option value="대전">대전</option>
+                    <option value="울산">울산</option>
+                    <option value="경기">경기</option>
+                    <option value="강원">강원</option>
+                    <option value="충북">충북</option>
+                    <option value="충남">충남</option>
+                    <option value="전북">전북</option>
+                    <option value="전남">전남</option>
+                    <option value="경북">경북</option>
+                    <option value="경남">경남</option>
+                    <option value="제주">제주</option>
+                  </select>
+                </label>
                 <label>주택명 :
                   <input th:name="houseName"
                          type="search" class="form-control bg-white small" placeholder="Search for..."
                          aria-label="Search" aria-describedby="basic-addon2">
                 </label>
                 <div class="input-group-append">
-                  <button class="btn btn-primary" type="button">
+                  <button class="btn btn-primary" type="submit">
                     <i class="fas fa-search fa-sm"></i>
                   </button>
                 </div>
@@ -325,25 +347,25 @@
               <div class="row">
                 <div class="dataTables_paginate paging_simple_numbers" id="dataTable_paginate" style="margin: 0 auto">
                   <ul class="pagination">
-                    <li class="paginate_button page-item previous disabled" id="dataTable_previous">
+                    <li class="paginate_button page-item previous" id="dataTable_previous">
                       <a href="#" aria-controls="dataTable" data-dt-idx="0" tabindex="0" class="page-link">Previous</a>
                     </li>
-                    <li class="paginate_button page-item active">
+                    <li class="paginate_button page-item">
                       <a href="#" aria-controls="dataTable" data-dt-idx="1" tabindex="0" class="page-link">1</a>
                     </li>
-                    <li class="paginate_button page-item ">
+                    <li class="paginate_button page-item">
                       <a href="#" aria-controls="dataTable" data-dt-idx="2" tabindex="0" class="page-link">2</a>
                     </li>
-                    <li class="paginate_button page-item ">
+                    <li class="paginate_button page-item">
                       <a href="#" aria-controls="dataTable" data-dt-idx="3" tabindex="0" class="page-link">3</a>
                     </li>
-                    <li class="paginate_button page-item ">
+                    <li class="paginate_button page-item">
                       <a href="#" aria-controls="dataTable" data-dt-idx="4" tabindex="0" class="page-link">4</a>
                     </li>
-                    <li class="paginate_button page-item ">
+                    <li class="paginate_button page-item">
                       <a href="#" aria-controls="dataTable" data-dt-idx="5" tabindex="0" class="page-link">5</a>
                     </li>
-                    <li class="paginate_button page-item ">
+                    <li class="paginate_button page-item">
                       <a href="#" aria-controls="dataTable" data-dt-idx="6" tabindex="0" class="page-link">6</a>
                     </li>
                     <li class="paginate_button page-item next" id="dataTable_next">
@@ -418,6 +440,8 @@
 <!-- Page level custom scripts -->
 <script src="/js/demo/chart-area-demo.js"></script>
 <script src="/js/demo/chart-pie-demo.js"></script>
+
+<script src="/js/home.js"></script>
 
 </body>
 
