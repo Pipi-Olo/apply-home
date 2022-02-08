@@ -6,6 +6,7 @@ import com.pipiolo.home.dto.UserResponse;
 import com.pipiolo.home.exception.GeneralException;
 import com.pipiolo.home.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
+import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
@@ -13,9 +14,8 @@ import java.util.List;
 import static com.pipiolo.home.constant.ErrorCode.BAD_REQUEST;
 import static com.pipiolo.home.constant.ErrorCode.NOT_FOUND;
 
-@Deprecated
 @RequiredArgsConstructor
-//@Service
+@Service
 public class UserService {
 
     private final UserRepository userRepository;
