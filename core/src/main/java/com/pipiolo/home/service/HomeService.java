@@ -58,5 +58,16 @@ public class HomeService {
                 pageable
         );
     }
+
+    @Transactional(readOnly = true)
+    public List<HomeResponse> findHomesNoOffset(
+            Long homeId,
+            int pageSize
+    ) {
+        return homeRepository.findHomesNoOffset(
+                homeId,
+                pageSize
+        );
+    }
 }
 
