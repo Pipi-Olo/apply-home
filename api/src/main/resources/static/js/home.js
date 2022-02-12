@@ -2,7 +2,7 @@ let page_links = document.querySelectorAll(".page-link");
 for (let i = 0; i < page_links.length; i++) {
     page_links[i].addEventListener("click", function () {
         let href = window.location.href;
-        if (href.indexOf("/index") == -1) {
+        if (href.indexOf("/index") === -1) {
             href += "index";
         }
 
@@ -11,7 +11,7 @@ for (let i = 0; i < page_links.length; i++) {
             pageNo = 0;
         }
 
-        if (href.indexOf('page=') == -1) {
+        if (href.indexOf('page=') === -1) {
             location.href = href + "?page=" + pageNo.toString();
         }
         else {
