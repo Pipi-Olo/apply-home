@@ -8,7 +8,6 @@ import com.pipiolo.home.dto.HomeResponse;
 import com.querydsl.core.types.Projections;
 import com.querydsl.core.types.dsl.BooleanExpression;
 import com.querydsl.jpa.JPQLQuery;
-import com.querydsl.jpa.impl.JPAQueryFactory;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageImpl;
 import org.springframework.data.domain.Pageable;
@@ -23,11 +22,9 @@ public class HomeRepositoryImpl
         extends QuerydslRepositorySupport
         implements HomeRepositoryCustom
 {
-    private final JPAQueryFactory queryFactory;
 
-    public HomeRepositoryImpl(JPAQueryFactory queryFactory) {
+    public HomeRepositoryImpl() {
         super(Home.class);
-        this.queryFactory = queryFactory;
     }
 
     @Override
@@ -81,20 +78,24 @@ public class HomeRepositoryImpl
             Long homeId,
             int pageSize
     ) {
-        return queryFactory
+        QHome home = QHome.home;
+        JPQLQuery<HomeResponse> query = from(home)
                 .select(Projections.constructor(
-                                HomeResponse.class,
-                                home.noticeId,
-                                home.houseManagementId,
-                                home.houseName,
-                                home.constructionCompany,
-                                home.region,
-                                home.subscriptionType,
-                                home.houseType,
-                                home.recruitmentDay,
-                                home.subscriptionStartDay,
-                                home.subscriptionEndDay,
-                                home.announcementDay))
+                        HomeResponse.class,
+                        home.noticeId,
+                        home.houseManagementId,
+                        home.houseName,
+                        home.constructionCompany,
+                        home.region,
+                        home.subscriptionType,
+                        home.houseType,
+                        home.recruitmentDay,
+                        home.subscriptionStartDay,
+                        home.subscriptionEndDay,
+                        home.announcementDay
+                ));
+
+        return query
                 .from(home)
                 .where(
                         ltHomeId(homeId)
