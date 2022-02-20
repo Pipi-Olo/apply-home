@@ -6,6 +6,8 @@ import com.pipiolo.home.dto.HomeResponse;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 
+import java.util.List;
+
 public interface HomeRepositoryCustom {
 
     Page<HomeResponse> findHomeBySearchParams(
@@ -14,5 +16,10 @@ public interface HomeRepositoryCustom {
             SubscriptionType subscriptionType,
             HouseType houseType,
             Pageable pageable
+    );
+
+    List<HomeResponse> findHomesNoOffset(
+            Long homeId,
+            int pageSize
     );
 }

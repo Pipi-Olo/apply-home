@@ -44,6 +44,11 @@
         <i class="fas fa-fw fa-tachometer-alt"></i>
         <span>Dashboard</span></a>
     </li>
+    <li class="nav-item active">
+      <a class="nav-link" href="/map">
+        <i class="fas fa-fw fa-tachometer-alt"></i>
+        <span>Map</span></a>
+    </li>
 
     <!-- Divider -->
     <hr class="sidebar-divider">
@@ -96,7 +101,7 @@
 
         <!-- Topbar Navbar -->
         <ul class="navbar-nav ml-auto">
-          
+
           <!-- Nav Item - Alerts -->
           <li class="nav-item dropdown no-arrow mx-1">
             <a class="nav-link dropdown-toggle" href="#" id="alertsDropdown" role="button"
@@ -250,18 +255,17 @@
 
         <!-- Page Heading -->
         <h1 class="h3 mb-2 text-gray-800">Tables</h1>
-        <p class="mb-4">DataTables is a third party plugin that is used to generate the demo table below.
-          For more information about DataTables, please visit the <a target="_blank"
-                                                                     href="https://datatables.net">official DataTables documentation</a>.</p>
+        <p class="mb-4">DataTables is a third party plugin that is used to generate the demo table below.</p>
+
         <!-- DataTales Example -->
         <div class="card shadow mb-4">
           <div class="card-header py-3">
-            <h6 class="m-0 font-weight-bold text-primary">DataTables Example</h6>
+            <h6 class="m-0 font-weight-bold text-primary">DataTables</h6>
           </div>
           <div class="card-header py-3">
             <!-- Search -->
             <form method="get" th:action="@{/}"
-                class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
+                  class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
               <div class="input-group">
                 <label style="margin-right: 1rem">
                   <select th:name="subscriptionType"
@@ -347,9 +351,9 @@
               <div class="row">
                 <div class="dataTables_paginate paging_simple_numbers" id="dataTable_paginate" style="margin: 0 auto">
                   <ul class="pagination">
-<!--                    <li class="paginate_button page-item previous" id="dataTable_previous">-->
-<!--                      <a href="#" aria-controls="dataTable" data-dt-idx="0" tabindex="0" class="page-link">Previous</a>-->
-<!--                    </li>-->
+                    <!--                    <li class="paginate_button page-item previous" id="dataTable_previous">-->
+                    <!--                      <a href="#" aria-controls="dataTable" data-dt-idx="0" tabindex="0" class="page-link">Previous</a>-->
+                    <!--                    </li>-->
                     <li class="paginate_button page-item">
                       <a href="#" aria-controls="dataTable" data-dt-idx="1" tabindex="0" class="page-link">1</a>
                     </li>
@@ -365,9 +369,9 @@
                     <li class="paginate_button page-item">
                       <a href="#" aria-controls="dataTable" data-dt-idx="5" tabindex="0" class="page-link">5</a>
                     </li>
-<!--                    <li class="paginate_button page-item next" id="dataTable_next">-->
-<!--                      <a href="#" aria-controls="dataTable" data-dt-idx="7" tabindex="0" class="page-link">Next</a>-->
-<!--                    </li>-->
+                    <!--                    <li class="paginate_button page-item next" id="dataTable_next">-->
+                    <!--                      <a href="#" aria-controls="dataTable" data-dt-idx="7" tabindex="0" class="page-link">Next</a>-->
+                    <!--                    </li>-->
                   </ul>
                 </div>
               </div>

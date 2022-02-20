@@ -22,6 +22,8 @@ import static com.pipiolo.home.constant.ErrorCode.BAD_REQUEST;
 @Service
 public class LoginService implements UserDetailsService {
 
+    private final LogService logService;
+
     private final UserRepository userRepository;
     private final PasswordEncoder passwordEncoder;
 
@@ -30,6 +32,9 @@ public class LoginService implements UserDetailsService {
         if (userRepository.findByEmail(request.email()).isPresent()) {
             throw new GeneralException(BAD_REQUEST, "Email Already Exists.");
         }
+
+        logService.info(this.getClass().getName(),
+                "Email: " + request.email() + " Role: " + request.role() + " Sign Up");
 
         return userRepository.save(User.builder()
                 .email(request.email())

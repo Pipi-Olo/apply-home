@@ -49,3 +49,6 @@ application.properties
 
 ## Querydsl ###
 generated
+
+### Logs ###
+/logs/
