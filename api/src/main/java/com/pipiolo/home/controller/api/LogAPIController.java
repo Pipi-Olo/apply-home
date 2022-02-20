@@ -15,22 +15,22 @@ public class LogAPIController {
 
     @GetMapping("/log/error")
     public void logError(String message) {
-        logService.error(message);
+        logService.error(this.getClass().getName(), message);
     }
 
     @GetMapping("/log/warn")
     public void logWarn(String message) {
-        logService.warn(message);
+        logService.warn(this.getClass().getName(), message);
     }
 
     @GetMapping("/log/info")
     public void logInfo(String message) {
-        logService.info(message);
+        logService.info(this.getClass().getName(), message);
     }
 
     @GetMapping("/log/debug")
     public void logDebug(String message) {
-        logService.debug(message);
+        logService.debug(this.getClass().getName(), message);
     }
 
 }

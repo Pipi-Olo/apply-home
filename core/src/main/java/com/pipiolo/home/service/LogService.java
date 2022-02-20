@@ -7,20 +7,20 @@ import org.springframework.stereotype.Service;
 @Service
 public class LogService {
 
-    public void error(String message) {
-        log.error(message);
+    public void error(String className, String message) {
+        log.error("[" + className + "] " + message);
     }
 
-    public void warn(String message) {
-        log.warn(message);
+    public void warn(String className, String message) {
+        log.warn("[" + className + "] " + message);
     }
 
-    public void info(String message) {
-        log.info(message);
+    public void info(String className, String message) {
+        log.info("[" + className + "] " + message);
     }
 
-    public void debug(String message) {
-        log.debug(message);
+    public void debug(String className, String message) {
+        log.debug("[" + className + "] " + message);
     }
 
 }
