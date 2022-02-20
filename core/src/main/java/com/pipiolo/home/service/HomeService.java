@@ -18,6 +18,7 @@ import java.util.List;
 @Service
 public class HomeService {
 
+    private final LogService logService;
     private final HomeRepository homeRepository;
 
     @Transactional
@@ -31,8 +32,11 @@ public class HomeService {
 
     @Transactional
     public void insert(HomeRequest request) {
-        if(homeRepository.findByNoticeId(request.noticeId()).isEmpty()) {
+        if (homeRepository.findByNoticeId(request.noticeId()).isEmpty()) {
             HomeResponse.from(homeRepository.save(request.toEntity()));
+
+            logService.info(this.getClass().getName(),
+                    request.toEntity().toString() + "is saved.");
         }
     }
 
