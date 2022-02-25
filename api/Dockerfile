@@ -1,4 +1,4 @@
-FROM openjdk:16
+FROM amazoncorretto:16
 
 WORKDIR /root
 
