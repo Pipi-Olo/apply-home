@@ -32,7 +32,7 @@ echo "> $JAR_NAME 를 profile=$IDLE_PROFILE 로 실행합니다."
 
 cd $REPOSITORY/
 
-rename $JAR_NAME applyhome.jar
+rename $JAR_NAME applyhome.jar $JAR_NAME
 
 docker build -t applyhome.jar
 docker run -it --name $IDLE_PROFILE -d -e active=$IDLE_PROFILE -p $IDLE_PORT:$IDLE_PORT applyhome.jar
