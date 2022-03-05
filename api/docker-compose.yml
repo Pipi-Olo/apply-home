@@ -8,23 +8,23 @@ services:
       - 80:80
     volumes:
       - /etc/nginx/:/etc/nginx/
-  server1:
-    build: applyhome.jar
+  spring1:
+    build: .
     image: spring
-    container_name: server1
+    container_name: real1
     ports:
       - 8081:8081
     volumes:
-      - ./:/root
+      - ./:/root/
     environment:
       active: real1
-  server2:
-    build: applyhome.jar
+  spring2:
+    build: .
     image: spring
-    container_name: server2
+    container_name: real2
     ports:
       - 8082:8082
     volumes:
-      - ./:/root
+      - ./:/root/
     environment:
       active: real2
