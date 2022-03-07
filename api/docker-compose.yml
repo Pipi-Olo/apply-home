@@ -1,0 +1,30 @@
+version: "3"
+
+services:
+  web:
+    image: nginx
+    container_name: nginx
+    ports:
+      - 80:80
+    volumes:
+      - /etc/nginx/:/etc/nginx/
+  server1:
+    build: applyhome.jar
+    image: spring
+    container_name: server1
+    ports:
+      - 8081:8081
+    volumes:
+      - ./:/root
+    environment:
+      active: real1
+  server2:
+    build: applyhome.jar
+    image: spring
+    container_name: server2
+    ports:
+      - 8082:8082
+    volumes:
+      - ./:/root
+    environment:
+      active: real2
