@@ -28,7 +28,7 @@ echo "> $JAR_NAME 실행"
 IDLE_PORT=$(find_idle_port)
 IDLE_PROFILE=$(find_idle_profile)
 
-echo "> $JAR_NAME 를 profile=$IDLE_PROFILE 로 실행합니다."
+echo "> $JAR_NAME 를 profile=$IDLE_PROFILE port=$IDLE_PORT 로 실행합니다."
 
 cd $REPOSITORY/
 
