@@ -34,5 +34,3 @@ cd $REPOSITORY/
 
 docker build -t spring ./
 docker run -it --name $IDLE_PROFILE -d -e active=$IDLE_PROFILE -p $IDLE_PORT:$IDLE_PORT spring
-
-docker ruwerjekwlr

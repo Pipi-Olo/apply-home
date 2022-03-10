@@ -7,7 +7,7 @@ services:
     ports:
       - 80:80
     volumes:
-      - /etc/nginx/:/etc/nginx/
+      - ./nginx/conf.d:/etc/nginx/conf.d
   spring1:
     build: .
     image: spring
