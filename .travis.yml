@@ -56,6 +56,9 @@ deploy:
     on:
       branch: main
 
+after_success:
+  - ./gradlew jacocoTestReport coveralls
+
 # CI 실행 완료시, 이메일 알람
 notifications:
   email:
