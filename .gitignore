@@ -52,3 +52,6 @@ generated
 
 ### Logs ###
 /logs/
+
+### Coveralls ###
+.coveralls.yml
