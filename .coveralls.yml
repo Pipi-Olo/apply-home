@@ -1,0 +1,1 @@
+repo_token: ${{ screts.COVERALLS_TOKEN }}
