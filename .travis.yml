@@ -63,4 +63,4 @@ after_success:
 notifications:
   email:
     recipients:
-      - pipiolo1024@gmail.com
+      - $EMAIL
